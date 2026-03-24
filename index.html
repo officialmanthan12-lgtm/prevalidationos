@@ -208,7 +208,6 @@ h1 span{color:var(--gold)}
   </div>
 </section>
 
-<!-- FORM SECTION -->
 <section class="form-section" id="get-scored">
   <div class="form-header">
     <div class="sec-eye">Submit your idea</div>
@@ -226,7 +225,6 @@ h1 span{color:var(--gold)}
 
     <form id="pvForm">
 
-      <!-- BASIC INFO -->
       <div class="form-section-label">Basic info</div>
 
       <div class="form-group">
@@ -239,7 +237,6 @@ h1 span{color:var(--gold)}
         <textarea class="form-textarea" id="idea" placeholder="What does it do, for whom, and how does it work?" required></textarea>
       </div>
 
-      <!-- PROBLEM CLARITY -->
       <div class="form-section-label">Problem clarity</div>
 
       <div class="form-group">
@@ -264,7 +261,6 @@ h1 span{color:var(--gold)}
         <input type="number" class="form-input" id="interviews" placeholder="Enter 0 if none" min="0" required>
       </div>
 
-      <!-- FOUNDER MARKET FIT -->
       <div class="form-section-label">Founder-market fit</div>
 
       <div class="form-group">
@@ -302,7 +298,6 @@ h1 span{color:var(--gold)}
         <input type="text" class="form-input" id="background" placeholder="One sentence about your relevant background" required>
       </div>
 
-      <!-- SCALABILITY -->
       <div class="form-section-label">Scalability</div>
 
       <div class="form-group">
@@ -338,7 +333,6 @@ h1 span{color:var(--gold)}
         <input type="hidden" id="outsideIndia" required>
       </div>
 
-      <!-- COMPETITION -->
       <div class="form-section-label">Competition awareness</div>
 
       <div class="form-group">
@@ -360,7 +354,6 @@ h1 span{color:var(--gold)}
         <input type="hidden" id="competitorCopy" required>
       </div>
 
-      <!-- GTM -->
       <div class="form-section-label">GTM clarity</div>
 
       <div class="form-group">
@@ -390,7 +383,6 @@ h1 span{color:var(--gold)}
         <input type="hidden" id="warmIntro" required>
       </div>
 
-      <!-- TRACTION -->
       <div class="form-section-label">Traction signal</div>
 
       <div class="form-group">
@@ -429,7 +421,6 @@ h1 span{color:var(--gold)}
 
     </form>
 
-    <!-- SUCCESS STATE -->
     <div class="success-state" id="successState">
       <div class="success-icon">✓</div>
       <div class="success-title">Submission received</div>
@@ -451,60 +442,72 @@ const WEBHOOK = 'https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
 
 // Yes/No button handler
 function setYN(btn, fieldId, value) {
-  var row = btn.parentElement;
+  const row = btn.parentElement;
   row.querySelectorAll('.yn-btn').forEach(function(b) {
     b.classList.remove('active-yes','active-no');
   });
   if (value === 'Yes') btn.classList.add('active-yes');
   else btn.classList.add('active-no');
-  document.getElementById(fieldId).value = value;
+  
+  const target = document.getElementById(fieldId);
+  target.value = value;
+  
+  // Force progress update
   updateProgress();
 }
 
-// Progress bar
+// Progress bar logic
 function updateProgress() {
-  var fields = ['email','idea','problem','problemEvidence','interviews','experience','personalExp','cofounder','background','businessModel','costPerCustomer','outsideIndia','competitors','differentiation','competitorCopy','firstCustomer','gtmChannel','warmIntro','validationLevel','totalInterviews','offeredToPay'];
-  var filled = 0;
+  const fields = ['email','idea','problem','problemEvidence','interviews','experience','personalExp','cofounder','background','businessModel','costPerCustomer','outsideIndia','competitors','differentiation','competitorCopy','firstCustomer','gtmChannel','warmIntro','validationLevel','totalInterviews','offeredToPay'];
+  let filled = 0;
   fields.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el && el.value && el.value.trim() !== '') filled++;
+    const el = document.getElementById(id);
+    if (el && el.value && el.value.toString().trim() !== '') filled++;
   });
-  document.getElementById('progressFill').style.width = Math.round((filled/fields.length)*100) + '%';
+  const progressFill = document.getElementById('progressFill');
+  if(progressFill) {
+    progressFill.style.width = Math.round((filled/fields.length)*100) + '%';
+  }
 }
 
-// Add progress tracking to all inputs
+// Attach event listeners to all standard inputs
 document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(function(el) {
   el.addEventListener('input', updateProgress);
   el.addEventListener('change', updateProgress);
+  el.addEventListener('blur', updateProgress);
 });
 
-// Form submit
+// Form submit logic
 document.getElementById('pvForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
-  var btn = document.getElementById('submitBtn');
-  var txt = document.getElementById('submitText');
+  const btn = document.getElementById('submitBtn');
+  const txt = document.getElementById('submitText');
+  
+  // Disable immediately to prevent spamming
   btn.disabled = true;
-  txt.textContent = 'Sending...';
+  txt.textContent = 'Analyzing details...';
 
-  var data = {
+  // Explicitly fetch values at the moment of submission
+  // Added .trim() to catch manual entry spaces
+  const data = {
     tier: 'Full Report (Beta)',
-    email: document.getElementById('email').value,
-    idea: document.getElementById('idea').value,
-    problem: document.getElementById('problem').value,
+    email: document.getElementById('email').value.trim(),
+    idea: document.getElementById('idea').value.trim(),
+    problem: document.getElementById('problem').value.trim(),
     problem_evidence: document.getElementById('problemEvidence').value,
     interviews_outside_network: document.getElementById('interviews').value,
     industry_experience: document.getElementById('experience').value,
     personally_experienced: document.getElementById('personalExp').value,
     domain_expert_cofounder: document.getElementById('cofounder').value,
-    relevant_background: document.getElementById('background').value,
+    relevant_background: document.getElementById('background').value.trim(),
     business_model: document.getElementById('businessModel').value,
     cost_per_customer: document.getElementById('costPerCustomer').value,
     works_outside_india: document.getElementById('outsideIndia').value,
-    competitors: document.getElementById('competitors').value,
-    differentiation: document.getElementById('differentiation').value,
+    competitors: document.getElementById('competitors').value.trim(),
+    differentiation: document.getElementById('differentiation').value.trim(),
     competitor_can_copy: document.getElementById('competitorCopy').value,
-    first_customer_target: document.getElementById('firstCustomer').value,
+    first_customer_target: document.getElementById('firstCustomer').value.trim(),
     gtm_channel: document.getElementById('gtmChannel').value,
     warm_intro: document.getElementById('warmIntro').value,
     validation_level: document.getElementById('validationLevel').value,
@@ -517,15 +520,19 @@ document.getElementById('pvForm').addEventListener('submit', function(e) {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(data)
   })
-  .then(function() {
+  .then(function(res) {
+    // Hide form and show success
     document.getElementById('pvForm').style.display = 'none';
     document.getElementById('successState').style.display = 'block';
     document.getElementById('progressFill').style.width = '100%';
+    // Scroll to success message
+    document.getElementById('get-scored').scrollIntoView({ behavior: 'smooth' });
   })
-  .catch(function() {
+  .catch(function(err) {
+    console.error('Submission Error:', err);
     btn.disabled = false;
     txt.textContent = 'Get my investor score';
-    alert('Something went wrong. Please try again.');
+    alert('Something went wrong. Please check your connection and try again.');
   });
 });
 </script>
