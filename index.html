@@ -5,191 +5,204 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pre-Validation OS — Know why investors would reject your startup</title>
 <meta name="description" content="Get your startup idea scored by an AI trained to think like a pre-seed investor. Know your rejection risk before you pitch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@300;400;500&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:#0c0c0e;color:#c8c6c0;width:100%}
-.pv-nav{background:#0a0a0b;border-bottom:1px solid #1c1c20;padding:14px 32px;display:flex;justify-content:space-between;align-items:center}
-.pv-logo{display:flex;align-items:center;gap:9px}
-.pv-logo-sq{width:26px;height:26px;background:#c9a96e;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0c0c0e}
-.pv-logo-txt{font-size:13px;font-weight:500;color:#e2e0db}
-.pv-nav-tag{font-size:11px;padding:4px 12px;border-radius:20px;border:1px solid #2a2a2e;color:#5a5860}
-.pv-hero{padding:60px 32px 52px;text-align:center;border-bottom:1px solid #1c1c20}
-.pv-eye{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#c9a96e;border:1px solid #3a2e1a;background:#180f06;padding:4px 14px;border-radius:20px;margin-bottom:20px}
-.pv-h1{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;line-height:1.22;color:#f2efe9;max-width:520px;margin:0 auto 14px}
-.pv-gld{color:#c9a96e}
-.pv-sub{font-size:14px;color:#5a5860;line-height:1.65;max-width:420px;margin:0 auto 10px;font-weight:300}
-.pv-trust{font-size:12px;color:#383640;font-style:italic;margin-bottom:28px}
-.pv-btn-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
-.pv-bg{padding:11px 22px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #2a2a2e;background:transparent;color:#7a7880;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block}
-.pv-bp{padding:11px 26px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:none;background:#c9a96e;color:#0c0c0e;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-block}
-.pv-note{font-size:11px;color:#2e2c34}
-.pv-stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #1c1c20}
-.pv-stat{text-align:center;padding:18px 8px;border-right:1px solid #1c1c20}
-.pv-stat:last-child{border-right:none}
-.pv-sn{font-size:20px;font-weight:500;color:#c9a96e}
-.pv-sl{font-size:11px;color:#3e3c44;margin-top:2px}
-.pv-sec{padding:40px 32px;border-bottom:1px solid #1c1c20}
-.pv-seceye{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#c9a96e;margin-bottom:8px}
-.pv-sectitle{font-size:22px;font-weight:500;color:#f2efe9;margin-bottom:4px}
-.pv-secsub{font-size:13px;color:#3e3c44;margin-bottom:20px}
-.pv-cgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#1c1c20;border:1px solid #1c1c20;border-radius:9px;overflow:hidden}
-.pv-ci{background:#0f0f11;padding:14px 16px}
-.pv-cinum{font-size:10px;color:#2e2c34;letter-spacing:.08em;margin-bottom:4px}
-.pv-ciname{font-size:13px;font-weight:500;color:#c8c6c0;margin-bottom:2px}
-.pv-cidesc{font-size:11px;color:#3e3c44}
-.pv-pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.pv-pc{border:1px solid #1c1c20;border-radius:10px;padding:20px;background:#0f0f11}
-.pv-pcf{border-color:#c9a96e;background:#120e08}
-.pv-fbadge{display:inline-block;font-size:10px;padding:3px 9px;border-radius:20px;background:#180f06;color:#c9a96e;border:1px solid #3a2e1a;margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase}
-.pv-pcname{font-size:15px;font-weight:500;color:#c8c6c0;margin-bottom:3px}
-.pv-pcamt{font-size:28px;font-weight:500;color:#f2efe9;line-height:1;margin-bottom:12px}
-.pv-pcdiv{border:none;border-top:1px solid #1c1c20;margin:12px 0}
-.pv-pcfl{list-style:none}
-.pv-pcfl li{font-size:12px;padding:3px 0;display:flex;gap:7px;color:#3a3840}
-.pv-pcfl li.on{color:#8a8890}
-.pv-pcfl li.on::before{content:"—";color:#c9a96e;flex-shrink:0}
-.pv-pcfl li::before{content:"—";color:#252328;flex-shrink:0}
-.pv-pcbg{width:100%;margin-top:14px;padding:9px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #2a2a2e;background:transparent;color:#5a5860;font-family:'DM Sans',sans-serif;text-decoration:none;display:block;text-align:center}
-.pv-pcbp{width:100%;margin-top:14px;padding:9px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:none;background:#c9a96e;color:#0c0c0e;font-family:'DM Sans',sans-serif;text-decoration:none;display:block;text-align:center}
-.pv-hsteps{display:flex;gap:0}
-.pv-hs{flex:1;padding-right:20px;position:relative}
-.pv-hs:not(:last-child)::after{content:'';position:absolute;right:6px;top:14px;width:12px;height:1px;background:#2a2a2e}
-.pv-hsnum{width:26px;height:26px;border-radius:5px;border:1px solid #2a2a2e;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:#c9a96e;margin-bottom:9px}
-.pv-hstit{font-size:13px;font-weight:500;color:#c8c6c0;margin-bottom:3px}
-.pv-hsdesc{font-size:12px;color:#3e3c44;line-height:1.4}
-.pv-faq{padding:12px 0;border-bottom:1px solid #1c1c20}
-.pv-faq:last-child{border-bottom:none}
-.pv-faqq{font-size:13px;font-weight:500;color:#c8c6c0;margin-bottom:4px}
-.pv-faqa{font-size:13px;color:#3e3c44;line-height:1.5}
-.pv-fcta{padding:52px 32px;text-align:center;background:#080809}
-.pv-fline{width:32px;height:1px;background:#c9a96e;margin:0 auto 20px}
-@media(max-width:600px){
-.pv-nav{padding:12px 16px}
-.pv-hero{padding:40px 16px 36px}
-.pv-h1{font-size:24px}
-.pv-stats{grid-template-columns:repeat(2,1fr)}
-.pv-sec{padding:28px 16px}
-.pv-cgrid{grid-template-columns:1fr}
-.pv-pgrid{grid-template-columns:1fr}
-.pv-hsteps{flex-direction:column;gap:20px}
-.pv-hs:not(:last-child)::after{display:none}
-.pv-fcta{padding:36px 16px}
+:root{
+  --bg:#0c0c0e;--surface:#0f0f11;--border:#1c1c20;--border2:#2a2a2e;
+  --text:#c8c6c0;--text2:#5a5860;--text3:#3e3c44;--text4:#2e2c34;
+  --gold:#c9a96e;--gold-bg:#180f06;--gold-border:#3a2e1a;
+  --h1:#f2efe9;--green:#4ade80;--red:#f87171;--blue:#60a5fa;--amber:#f59e0b;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:#0a0a0b;border-bottom:1px solid var(--border);padding:13px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-sq{width:26px;height:26px;background:var(--gold);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0c0c0e}
+.logo-txt{font-size:13px;font-weight:500;color:#e2e0db}
+.nav-right{display:flex;align-items:center;gap:12px}
+.beta-pill{font-size:10px;padding:3px 10px;border-radius:20px;background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);letter-spacing:.06em;font-weight:500}
+.nav-cta{padding:8px 18px;border-radius:7px;font-size:12px;font-weight:500;background:var(--gold);color:#0c0c0e;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none}
+
+/* HERO */
+.hero{padding:72px 32px 60px;text-align:center;border-bottom:1px solid var(--border)}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-border);background:var(--gold-bg);padding:4px 14px;border-radius:20px;margin-bottom:22px}
+h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.18;color:var(--h1);max-width:540px;margin:0 auto 16px}
+h1 span{color:var(--gold)}
+.sub{font-size:14px;color:var(--text2);line-height:1.7;max-width:400px;margin:0 auto 10px;font-weight:300}
+.trust{font-size:12px;color:#383640;font-style:italic;margin-bottom:32px}
+.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.btn-primary{padding:13px 28px;border-radius:7px;font-size:13px;font-weight:500;border:none;background:var(--gold);color:#0c0c0e;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s}
+.btn-primary:hover{background:#b8934a}
+.btn-beta-tag{font-size:10px;background:rgba(0,0,0,0.2);padding:2px 7px;border-radius:10px;letter-spacing:.04em}
+.hero-note{font-size:11px;color:var(--text4)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat{text-align:center;padding:20px 8px;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:22px;font-weight:500;color:var(--gold);font-family:'Playfair Display',serif}
+.stat-l{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* SECTIONS */
+.sec{padding:48px 32px;border-bottom:1px solid var(--border)}
+.sec-eye{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.sec-title{font-size:22px;font-weight:500;color:var(--h1);margin-bottom:4px}
+.sec-sub{font-size:13px;color:var(--text3);margin-bottom:22px}
+
+/* CRITERIA GRID */
+.crit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.ci{background:var(--surface);padding:16px 18px}
+.ci-num{font-size:10px;color:var(--text4);letter-spacing:.08em;margin-bottom:5px}
+.ci-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
+.ci-desc{font-size:11px;color:var(--text3)}
+
+/* HOW IT WORKS */
+.steps{display:flex;gap:0}
+.step{flex:1;padding-right:24px;position:relative}
+.step:not(:last-child)::after{content:'';position:absolute;right:8px;top:13px;width:16px;height:1px;background:var(--border2)}
+.step-num{width:26px;height:26px;border-radius:6px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--gold);margin-bottom:10px}
+.step-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
+.step-desc{font-size:12px;color:var(--text3);line-height:1.5}
+
+/* FAQ */
+.faq-item{padding:14px 0;border-bottom:1px solid var(--border)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
+.faq-a{font-size:13px;color:var(--text3);line-height:1.55}
+
+/* FORM SECTION */
+.form-section{padding:0;border-bottom:1px solid var(--border);background:var(--bg)}
+.form-header{padding:48px 32px 32px;text-align:center;border-bottom:1px solid var(--border)}
+.form-wrap{max-width:700px;margin:0 auto}
+.tally-embed{width:100%;border:none;min-height:800px;background:transparent}
+
+/* FOOTER CTA */
+.footer-cta{padding:60px 32px;text-align:center;background:#080809}
+.footer-line{width:32px;height:1px;background:var(--gold);margin:0 auto 24px}
+.footer-h{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--h1);margin-bottom:12px;line-height:1.25}
+.footer-sub{font-size:14px;color:var(--text2);margin-bottom:28px;font-weight:300}
+
+/* MOBILE */
+@media(max-width:640px){
+  nav{padding:12px 16px}
+  .hero{padding:48px 16px 40px}
+  h1{font-size:26px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sec{padding:32px 16px}
+  .crit-grid{grid-template-columns:1fr}
+  .steps{flex-direction:column;gap:20px}
+  .step:not(:last-child)::after{display:none}
+  .footer-cta{padding:40px 16px}
+  .form-header{padding:32px 16px 24px}
 }
 </style>
 </head>
 <body>
 
-<div class="pv-nav">
-  <div class="pv-logo">
-    <div class="pv-logo-sq">P</div>
-    <span class="pv-logo-txt">Pre-Validation OS</span>
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-sq">P</div>
+    <span class="logo-txt">Pre-Validation OS</span>
   </div>
-  <div class="pv-nav-tag">For Indian founders</div>
-</div>
-
-<div class="pv-hero">
-  <div class="pv-eye">Pre-seed investor intelligence</div>
-  <div class="pv-h1">Know <span class="pv-gld">exactly</span> why investors would reject your startup — before you walk in</div>
-  <div class="pv-sub">Scored by an AI trained on how pre-seed investors in India actually evaluate ideas. Not generic startup advice.</div>
-  <div class="pv-trust">"The same lens a VC partner uses in the first 5 minutes of reading your deck."</div>
-  <div class="pv-btn-row">
-    <a href="REPLACE_WITH_RS199_RAZORPAY_LINK" class="pv-bg">Quick Score — Rs 199</a>
-    <a href="REPLACE_WITH_RS499_RAZORPAY_LINK" class="pv-bp">Full Report — Rs 499</a>
+  <div class="nav-right">
+    <span class="beta-pill">Beta</span>
+    <a href="#get-scored" class="nav-cta">Get scored free</a>
   </div>
-  <div class="pv-note">One-time payment · No subscription · Report in inbox within 15 minutes</div>
-</div>
+</nav>
 
-<div class="pv-stats">
-  <div class="pv-stat"><div class="pv-sn">6</div><div class="pv-sl">investor criteria</div></div>
-  <div class="pv-stat"><div class="pv-sn">15 min</div><div class="pv-sl">report delivery</div></div>
-  <div class="pv-stat"><div class="pv-sn">Rs 199</div><div class="pv-sl">to get started</div></div>
-  <div class="pv-stat"><div class="pv-sn">7 min</div><div class="pv-sl">to fill the form</div></div>
-</div>
-
-<div class="pv-sec">
-  <div class="pv-seceye">What gets scored</div>
-  <div class="pv-sectitle">6 investor criteria. No weightings shown.</div>
-  <div class="pv-secsub">No gaming possible. Just an honest score from an AI that thinks like a VC.</div>
-  <div class="pv-cgrid">
-    <div class="pv-ci"><div class="pv-cinum">01</div><div class="pv-ciname">Problem clarity</div><div class="pv-cidesc">Is the pain real and evidenced?</div></div>
-    <div class="pv-ci"><div class="pv-cinum">02</div><div class="pv-ciname">Founder-market fit</div><div class="pv-cidesc">Why is this the right team?</div></div>
-    <div class="pv-ci"><div class="pv-cinum">03</div><div class="pv-ciname">Scalability</div><div class="pv-cidesc">10x users without 10x costs?</div></div>
-    <div class="pv-ci"><div class="pv-cinum">04</div><div class="pv-ciname">Competition awareness</div><div class="pv-cidesc">Know the landscape, own the gap?</div></div>
-    <div class="pv-ci"><div class="pv-cinum">05</div><div class="pv-ciname">GTM clarity</div><div class="pv-cidesc">Name your first 10 customers?</div></div>
-    <div class="pv-ci"><div class="pv-cinum">06</div><div class="pv-ciname">Traction signal</div><div class="pv-cidesc">Validation beyond belief?</div></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">Pre-seed investor intelligence</div>
+  <h1>Know <span>exactly</span> why investors would reject your startup — before you walk in</h1>
+  <p class="sub">Scored by an AI trained on how pre-seed investors in India actually evaluate ideas. Not generic startup advice.</p>
+  <p class="trust">"The same lens a VC partner uses in the first 5 minutes of reading your deck."</p>
+  <div class="hero-btns">
+    <a href="#get-scored" class="btn-primary">Get your free score <span class="btn-beta-tag">Beta</span></a>
   </div>
+  <p class="hero-note">No payment needed · Beta access · Report in your inbox in 15 minutes</p>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">investor criteria</div></div>
+  <div class="stat"><div class="stat-n">15 min</div><div class="stat-l">report delivery</div></div>
+  <div class="stat"><div class="stat-n">Free</div><div class="stat-l">during beta</div></div>
+  <div class="stat"><div class="stat-n">7 min</div><div class="stat-l">to fill the form</div></div>
 </div>
 
-<div class="pv-sec">
-  <div class="pv-seceye">Pricing</div>
-  <div class="pv-sectitle">Choose your depth.</div>
-  <div class="pv-secsub">Both deliver to your inbox in 15 minutes.</div>
-  <div class="pv-pgrid">
-    <div class="pv-pc">
-      <div class="pv-pcname">Quick Score</div>
-      <div class="pv-pcamt">Rs 199</div>
-      <hr class="pv-pcdiv">
-      <ul class="pv-pcfl">
-        <li class="on">Overall score out of 10</li>
-        <li class="on">All 6 criterion scores</li>
-        <li class="on">One-line reasoning each</li>
-        <li class="on">Grade level</li>
-        <li>Rejection risk — locked</li>
-        <li>Priority fix — locked</li>
-        <li>Investor verdict — locked</li>
-      </ul>
-      <a href="REPLACE_WITH_RS199_RAZORPAY_LINK" class="pv-pcbg">Get Quick Score</a>
-    </div>
-    <div class="pv-pc pv-pcf">
-      <div class="pv-fbadge">Most chosen</div>
-      <div class="pv-pcname">Full Report</div>
-      <div class="pv-pcamt">Rs 499</div>
-      <hr class="pv-pcdiv">
-      <ul class="pv-pcfl">
-        <li class="on">Everything in Quick Score</li>
-        <li class="on">Full reasoning per criterion</li>
-        <li class="on">Top rejection risk</li>
-        <li class="on">One priority fix — 30 days</li>
-        <li class="on">Investor verdict paragraph</li>
-        <li class="on">Missing-info flags</li>
-      </ul>
-      <a href="REPLACE_WITH_RS499_RAZORPAY_LINK" class="pv-pcbp">Get Full Report</a>
-    </div>
+<!-- CRITERIA -->
+<section class="sec">
+  <div class="sec-eye">What gets scored</div>
+  <div class="sec-title">6 investor criteria. No weightings shown.</div>
+  <div class="sec-sub">No gaming possible. Just an honest score from an AI that thinks like a VC.</div>
+  <div class="crit-grid">
+    <div class="ci"><div class="ci-num">01</div><div class="ci-name">Problem clarity</div><div class="ci-desc">Is the pain real and evidenced?</div></div>
+    <div class="ci"><div class="ci-num">02</div><div class="ci-name">Founder-market fit</div><div class="ci-desc">Why is this the right team?</div></div>
+    <div class="ci"><div class="ci-num">03</div><div class="ci-name">Scalability</div><div class="ci-desc">10x users without 10x costs?</div></div>
+    <div class="ci"><div class="ci-num">04</div><div class="ci-name">Competition awareness</div><div class="ci-desc">Know the landscape, own the gap?</div></div>
+    <div class="ci"><div class="ci-num">05</div><div class="ci-name">GTM clarity</div><div class="ci-desc">Name your first 10 customers?</div></div>
+    <div class="ci"><div class="ci-num">06</div><div class="ci-name">Traction signal</div><div class="ci-desc">Validation beyond belief?</div></div>
   </div>
-</div>
+</section>
 
-<div class="pv-sec">
-  <div class="pv-seceye">Process</div>
-  <div class="pv-sectitle">Three steps. Fifteen minutes.</div>
-  <div class="pv-secsub">No calls. No waiting. Fully automated.</div>
-  <div class="pv-hsteps">
-    <div class="pv-hs"><div class="pv-hsnum">1</div><div class="pv-hstit">Pay and choose</div><div class="pv-hsdesc">Rs 199 or Rs 499. Secure Razorpay checkout.</div></div>
-    <div class="pv-hs"><div class="pv-hsnum">2</div><div class="pv-hstit">Fill the form</div><div class="pv-hsdesc">Structured dropdowns. 7 minutes. No essays.</div></div>
-    <div class="pv-hs"><div class="pv-hsnum">3</div><div class="pv-hstit">Get your report</div><div class="pv-hsdesc">Full score in your inbox in 15 minutes.</div></div>
+<!-- HOW IT WORKS -->
+<section class="sec">
+  <div class="sec-eye">Process</div>
+  <div class="sec-title">Three steps. Fifteen minutes.</div>
+  <div class="sec-sub">No calls. No waiting. Fully automated.</div>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-title">Fill the form below</div><div class="step-desc">Structured dropdowns. 7 minutes. No essays.</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-title">AI scores your idea</div><div class="step-desc">Claude evaluates like a pre-seed VC partner.</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-title">Report in your inbox</div><div class="step-desc">Full score breakdown in 15 minutes.</div></div>
   </div>
-</div>
+</section>
 
-<div class="pv-sec">
-  <div class="pv-seceye">FAQ</div>
-  <div class="pv-sectitle">Common questions.</div>
+<!-- FAQ -->
+<section class="sec">
+  <div class="sec-eye">FAQ</div>
+  <div class="sec-title">Common questions.</div>
   <div style="margin-top:16px;">
-    <div class="pv-faq"><div class="pv-faqq">Who is this for?</div><div class="pv-faqa">Pre-seed founders in India preparing to approach investors or apply to accelerators like YC, Surge, NSRCEL, or T-Hub.</div></div>
-    <div class="pv-faq"><div class="pv-faqq">How is this different from asking a mentor?</div><div class="pv-faqa">Mentors are generous. This is anonymous, structured, and consistent — it tells you what the investor thinks, not what a friend thinks.</div></div>
-    <div class="pv-faq"><div class="pv-faqq">What is the refund policy?</div><div class="pv-faqa">If you submit and receive no report within 30 minutes, email us for a full refund. Reports that are delivered are non-refundable.</div></div>
-    <div class="pv-faq"><div class="pv-faqq">Will my idea be kept confidential?</div><div class="pv-faqa">Yes. Your submission is only visible to you and the Pre-Validation OS team. We never share or publish founder submissions.</div></div>
+    <div class="faq-item"><div class="faq-q">Who is this for?</div><div class="faq-a">Pre-seed founders in India preparing to approach investors or apply to accelerators like YC, Surge, NSRCEL, or T-Hub.</div></div>
+    <div class="faq-item"><div class="faq-q">How is this different from asking a mentor?</div><div class="faq-a">Mentors are generous. This is anonymous, structured, and consistent — it tells you what the investor thinks, not what a friend thinks.</div></div>
+    <div class="faq-item"><div class="faq-q">Why is it free right now?</div><div class="faq-a">We are in beta. We want real founders to use it and give us feedback before we charge. Your submission helps us improve the scoring model.</div></div>
+    <div class="faq-item"><div class="faq-q">Will my idea be kept confidential?</div><div class="faq-a">Yes. Your submission is only visible to the Pre-Validation OS team. We never share or publish founder submissions.</div></div>
   </div>
-</div>
+</section>
 
-<div class="pv-fcta">
-  <div class="pv-fline"></div>
-  <div style="font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:#f2efe9;margin-bottom:12px;line-height:1.3;">Know where you stand<br>before you pitch.</div>
-  <div style="font-size:14px;color:#5a5860;margin-bottom:24px;">One payment. One honest report. 15 minutes.</div>
-  <div class="pv-btn-row">
-    <a href="REPLACE_WITH_RS199_RAZORPAY_LINK" class="pv-bg">Quick Score — Rs 199</a>
-    <a href="REPLACE_WITH_RS499_RAZORPAY_LINK" class="pv-bp">Full Report — Rs 499</a>
+<!-- FORM SECTION -->
+<section class="form-section" id="get-scored">
+  <div class="form-header">
+    <div class="sec-eye">Submit your idea</div>
+    <div class="sec-title">Get your investor readiness score.</div>
+    <p style="font-size:13px;color:var(--text3);margin-top:4px;">Fill the form below. Your report arrives in your inbox within 15 minutes.</p>
   </div>
-</div>
+  <div class="form-wrap">
+    <iframe class="tally-embed" src="https://tally.so/embed/VL826E?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- FOOTER CTA -->
+<section class="footer-cta">
+  <div class="footer-line"></div>
+  <div class="footer-h">Know where you stand<br>before you pitch.</div>
+  <div class="footer-sub">Free during beta. Takes 7 minutes.</div>
+  <a href="#get-scored" class="btn-primary">Get your free score <span class="btn-beta-tag">Beta</span></a>
+</section>
+
+<script>
+// Make Tally embed resize dynamically
+window.addEventListener('message', function(e) {
+  if (typeof e.data === 'object' && e.data.type === 'tally-form-height') {
+    var iframe = document.querySelector('.tally-embed');
+    if (iframe) iframe.style.minHeight = e.data.height + 'px';
+  }
+});
+</script>
 
 </body>
 </html>
