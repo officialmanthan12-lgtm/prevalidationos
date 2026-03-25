@@ -10,16 +10,16 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0c0c0e;--surface:#0f0f11;--surface2:#141416;--border:#1c1c20;--border2:#2a2a2e;
-  --text:#c8c6c0;--text2:#5a5860;--text3:#3e3c44;--text4:#2e2c34;
+  --bg:#0c0c0e;--surface:#141416;--border:#252528;--border2:#2e2e34;
   --gold:#c9a96e;--gold-bg:#180f06;--gold-border:#3a2e1a;
-  --h1:#f2efe9;--green:#4ade80;
+  --h1:#f2efe9;--body:#b0aead;--muted:#6e6c72;--faint:#3e3c44;
+  --green:#4ade80;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--body);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
 
 /* NAV */
-nav{background:#0a0a0b;border-bottom:1px solid var(--border);padding:13px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+nav{background:#09090a;border-bottom:1px solid var(--border);padding:13px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
 .logo{display:flex;align-items:center;gap:9px}
 .logo-sq{width:26px;height:26px;background:var(--gold);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#0c0c0e}
 .logo-txt{font-size:13px;font-weight:500;color:#e2e0db}
@@ -28,116 +28,108 @@ nav{background:#0a0a0b;border-bottom:1px solid var(--border);padding:13px 32px;d
 .nav-cta{padding:8px 18px;border-radius:7px;font-size:12px;font-weight:500;background:var(--gold);color:#0c0c0e;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none}
 
 /* HERO */
-.hero{padding:72px 32px 60px;text-align:center;border-bottom:1px solid var(--border)}
-.eyebrow{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-border);background:var(--gold-bg);padding:4px 14px;border-radius:20px;margin-bottom:22px}
-h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;line-height:1.18;color:var(--h1);max-width:540px;margin:0 auto 16px}
+.hero{padding:80px 40px 64px;text-align:center;border-bottom:1px solid var(--border);max-width:760px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-border);background:var(--gold-bg);padding:4px 14px;border-radius:20px;margin-bottom:24px}
+h1{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;line-height:1.15;color:var(--h1);margin-bottom:18px}
 h1 span{color:var(--gold)}
-.sub{font-size:14px;color:var(--text2);line-height:1.7;max-width:400px;margin:0 auto 10px;font-weight:300}
-.trust{font-size:12px;color:#383640;font-style:italic;margin-bottom:32px}
-.hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px}
+.sub{font-size:15px;color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 32px;font-weight:300}
+.hero-btns{display:flex;gap:10px;justify-content:center;margin-bottom:14px}
 .btn-primary{padding:13px 28px;border-radius:7px;font-size:13px;font-weight:500;border:none;background:var(--gold);color:#0c0c0e;cursor:pointer;font-family:'DM Sans',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s}
 .btn-primary:hover{background:#b8934a}
 .btn-beta-tag{font-size:10px;background:rgba(0,0,0,0.2);padding:2px 7px;border-radius:10px;letter-spacing:.04em}
-.hero-note{font-size:11px;color:var(--text4)}
+.hero-note{font-size:12px;color:var(--faint)}
 
 /* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
-.stat{text-align:center;padding:20px 8px;border-right:1px solid var(--border)}
+.stats-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);max-width:600px;margin:0 auto}
+.stat{text-align:center;padding:22px 8px;border-right:1px solid var(--border)}
 .stat:last-child{border-right:none}
-.stat-n{font-size:22px;font-weight:500;color:var(--gold);font-family:'Playfair Display',serif}
-.stat-l{font-size:11px;color:var(--text3);margin-top:2px}
+.stat-n{font-size:24px;font-weight:500;color:var(--gold);font-family:'Playfair Display',serif}
+.stat-l{font-size:11px;color:var(--muted);margin-top:3px}
 
 /* SECTIONS */
-.sec{padding:48px 32px;border-bottom:1px solid var(--border)}
-.sec-eye{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.sec-title{font-size:22px;font-weight:500;color:var(--h1);margin-bottom:4px}
-.sec-sub{font-size:13px;color:var(--text3);margin-bottom:22px}
+.sec{padding:52px 40px;border-bottom:1px solid var(--border);max-width:760px;margin:0 auto}
+.sec-eye{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.sec-title{font-size:22px;font-weight:500;color:var(--h1);margin-bottom:6px}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6}
 
 /* CRITERIA GRID */
 .crit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .ci{background:var(--surface);padding:16px 18px}
-.ci-num{font-size:10px;color:var(--text4);letter-spacing:.08em;margin-bottom:5px}
-.ci-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
-.ci-desc{font-size:11px;color:var(--text3)}
+.ci-num{font-size:10px;color:var(--faint);letter-spacing:.08em;margin-bottom:5px}
+.ci-name{font-size:13px;font-weight:500;color:var(--h1);margin-bottom:3px}
+.ci-desc{font-size:12px;color:var(--muted)}
 
 /* HOW IT WORKS */
-.steps{display:flex;gap:0}
-.step{flex:1;padding-right:24px;position:relative}
-.step:not(:last-child)::after{content:'';position:absolute;right:8px;top:13px;width:16px;height:1px;background:var(--border2)}
-.step-num{width:26px;height:26px;border-radius:6px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--gold);margin-bottom:10px}
-.step-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
-.step-desc{font-size:12px;color:var(--text3);line-height:1.5}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.step{background:var(--surface);padding:20px 18px}
+.step-num{font-size:10px;color:var(--faint);letter-spacing:.08em;margin-bottom:10px}
+.step-title{font-size:13px;font-weight:500;color:var(--h1);margin-bottom:4px}
+.step-desc{font-size:12px;color:var(--muted);line-height:1.5}
 
 /* FAQ */
 .faq-item{padding:14px 0;border-bottom:1px solid var(--border)}
 .faq-item:last-child{border-bottom:none}
-.faq-q{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
-.faq-a{font-size:13px;color:var(--text3);line-height:1.55}
+.faq-q{font-size:13px;font-weight:500;color:var(--h1);margin-bottom:5px}
+.faq-a{font-size:13px;color:var(--muted);line-height:1.55}
 
 /* FORM SECTION */
-.form-section{padding:0;border-bottom:1px solid var(--border)}
-.form-header{padding:48px 32px 0;text-align:center}
-.form-wrap{max-width:640px;margin:0 auto;padding:32px 32px 48px}
+.form-section{border-bottom:1px solid var(--border)}
+.form-header{padding:52px 40px 0;text-align:center;max-width:760px;margin:0 auto}
+.form-wrap{max-width:620px;margin:0 auto;padding:36px 40px 56px}
 
-/* FORM ELEMENTS */
-.form-instruction{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:14px 18px;margin-bottom:32px}
-.form-instruction-title{font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
-.form-instruction-body{font-size:12px;color:#8a8890;line-height:1.65}
+.form-progress{height:2px;background:var(--border);border-radius:2px;margin-bottom:36px;overflow:hidden}
+.form-progress-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .3s ease;width:0%}
+
+.form-instruction{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:8px;padding:14px 18px;margin-bottom:36px}
+.form-instruction-title{font-size:11px;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.form-instruction-body{font-size:12px;color:var(--body);line-height:1.7}
 
 .form-group{margin-bottom:22px}
-.form-section-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:#c9a96e;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--border);margin-top:32px}
-.form-label{font-size:13px;font-weight:500;color:#e2e0db;margin-bottom:7px;display:block;letter-spacing:.01em}
+.form-section-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--border);margin-top:36px}
+.form-label{font-size:13px;font-weight:500;color:var(--h1);margin-bottom:8px;display:block}
 .form-label span{color:var(--gold);margin-left:2px}
-.form-input, .form-textarea, .form-select{width:100%;background:#1a1a1e;border:1px solid #2e2e34;border-radius:7px;padding:11px 14px;font-size:13px;color:#f2efe9;font-family:'DM Sans',sans-serif;transition:border-color .15s;outline:none;-webkit-appearance:none}
-.form-input:focus, .form-textarea:focus, .form-select:focus{border-color:var(--gold);background:#1e1e23}
-.form-input::placeholder, .form-textarea::placeholder{color:#4a4852}
-.form-textarea{resize:none;line-height:1.6;min-height:90px}
-.form-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235a5860' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
-.form-select option{background:#0f0f11;color:var(--text)}
 
-/* YES NO BUTTONS */
+.form-input,.form-textarea,.form-select{width:100%;background:#1a1a1e;border:1px solid var(--border2);border-radius:7px;padding:11px 14px;font-size:13px;color:var(--h1);font-family:'DM Sans',sans-serif;transition:border-color .15s;outline:none;-webkit-appearance:none}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--gold)}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--muted)}
+.form-textarea{resize:none;line-height:1.6;min-height:90px}
+.form-select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236e6c72' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.form-select option{background:#1a1a1e;color:var(--h1)}
+
 .yn-row{display:flex;gap:8px}
-.yn-btn{flex:1;padding:10px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid #2e2e34;background:#1a1a1e;color:#8a8890;font-family:'DM Sans',sans-serif;transition:all .15s;text-align:center}
-.yn-btn:hover{border-color:var(--border2);color:var(--text)}
+.yn-btn{flex:1;padding:10px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:#1a1a1e;color:var(--body);font-family:'DM Sans',sans-serif;transition:all .15s;text-align:center}
+.yn-btn:hover{border-color:var(--gold);color:var(--h1)}
 .yn-btn.active-yes{background:#0d1a0f;border-color:#1d4a22;color:var(--green)}
 .yn-btn.active-no{background:#1a0a0a;border-color:#3a1414;color:#f87171}
 
-/* SUBMIT */
-.form-submit-wrap{margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
-.form-submit{width:100%;padding:14px;border-radius:8px;font-size:14px;font-weight:500;border:none;background:var(--gold);color:#0c0c0e;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:8px}
+.form-submit-wrap{margin-top:36px;padding-top:24px;border-top:1px solid var(--border)}
+.form-submit{width:100%;padding:14px;border-radius:8px;font-size:14px;font-weight:500;border:none;background:var(--gold);color:#0c0c0e;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .15s}
 .form-submit:hover{background:#b8934a}
 .form-submit:disabled{opacity:.5;cursor:not-allowed}
-.submit-note{font-size:11px;color:var(--text4);text-align:center;margin-top:10px}
+.submit-note{font-size:11px;color:var(--faint);text-align:center;margin-top:10px}
 
-/* SUCCESS STATE */
-.success-state{display:none;text-align:center;padding:48px 32px;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin:0 32px 32px}
-.success-icon{width:48px;height:48px;background:#0d1a0f;border:1px solid #1d4a22;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px}
+.success-state{display:none;text-align:center;padding:52px 32px;background:var(--surface);border:1px solid var(--border);border-radius:10px;margin:0 40px 40px}
+.success-icon{width:48px;height:48px;background:#0d1a0f;border:1px solid #1d4a22;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:20px;color:var(--green)}
 .success-title{font-size:18px;font-weight:500;color:var(--h1);margin-bottom:8px}
-.success-sub{font-size:13px;color:var(--text3);line-height:1.65}
+.success-sub{font-size:13px;color:var(--muted);line-height:1.7}
 
-/* PROGRESS BAR */
-.form-progress{height:2px;background:var(--border);border-radius:2px;margin-bottom:32px;overflow:hidden}
-.form-progress-fill{height:100%;background:var(--gold);border-radius:2px;transition:width .3s ease;width:0%}
-
-/* FOOTER CTA */
-.footer-cta{padding:60px 32px;text-align:center;background:#080809}
+.footer-cta{padding:64px 40px;text-align:center;background:#080809}
 .footer-line{width:32px;height:1px;background:var(--gold);margin:0 auto 24px}
-.footer-h{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--h1);margin-bottom:12px;line-height:1.25}
-.footer-sub{font-size:14px;color:var(--text2);margin-bottom:28px;font-weight:300}
+.footer-h{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--h1);margin-bottom:12px;line-height:1.2}
+.footer-sub{font-size:14px;color:var(--muted);margin-bottom:28px;font-weight:300}
 
 @media(max-width:640px){
-  nav{padding:12px 16px}
-  .hero{padding:48px 16px 40px}
-  h1{font-size:26px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .sec{padding:32px 16px}
-  .crit-grid{grid-template-columns:1fr}
-  .steps{flex-direction:column;gap:20px}
-  .step:not(:last-child)::after{display:none}
-  .footer-cta{padding:40px 16px}
-  .form-header{padding:32px 16px 0}
-  .form-wrap{padding:24px 16px 40px}
-  .success-state{margin:0 16px 24px}
+  nav{padding:12px 20px}
+  .hero{padding:52px 20px 44px}
+  h1{font-size:28px}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .sec{padding:36px 20px}
+  .form-header{padding:36px 20px 0}
+  .form-wrap{padding:28px 20px 44px}
+  .crit-grid,.steps{grid-template-columns:1fr}
+  .success-state{margin:0 20px 28px}
+  .footer-cta{padding:44px 20px}
 }
 </style>
 </head>
@@ -154,28 +146,31 @@ h1 span{color:var(--gold)}
   </div>
 </nav>
 
+<div style="border-bottom:1px solid var(--border)">
 <section class="hero">
   <div class="eyebrow">Pre-seed investor intelligence</div>
-  <h1>Know <span>exactly</span> why investors would reject your startup — before you walk in</h1>
-  <p class="sub">Scored by an AI trained on how pre-seed investors in India actually evaluate ideas. Not generic startup advice.</p>
-  <p class="trust">"The same lens a VC partner uses in the first 5 minutes of reading your deck."</p>
+  <h1>Know <span>exactly</span> why investors would reject your startup</h1>
+  <p class="sub">An AI that thinks like a pre-seed VC partner scores your idea across 6 criteria — and tells you your top rejection risk before you walk into the room.</p>
   <div class="hero-btns">
     <a href="#get-scored" class="btn-primary">Get your free score <span class="btn-beta-tag">Beta</span></a>
   </div>
-  <p class="hero-note">No payment needed · Beta access · Report in your inbox in 15 minutes</p>
+  <p class="hero-note">No payment · 7 minutes · Report in 2 minutes</p>
 </section>
-
-<div class="stats">
-  <div class="stat"><div class="stat-n">6</div><div class="stat-l">investor criteria</div></div>
-  <div class="stat"><div class="stat-n">15 min</div><div class="stat-l">report delivery</div></div>
-  <div class="stat"><div class="stat-n">Free</div><div class="stat-l">during beta</div></div>
-  <div class="stat"><div class="stat-n">7 min</div><div class="stat-l">to fill the form</div></div>
 </div>
 
+<div class="stats-wrap">
+  <div class="stats">
+    <div class="stat"><div class="stat-n">6</div><div class="stat-l">investor criteria</div></div>
+    <div class="stat"><div class="stat-n">2 min</div><div class="stat-l">report delivery</div></div>
+    <div class="stat"><div class="stat-n">Free</div><div class="stat-l">during beta</div></div>
+  </div>
+</div>
+
+<div style="border-bottom:1px solid var(--border)">
 <section class="sec">
   <div class="sec-eye">What gets scored</div>
-  <div class="sec-title">6 investor criteria. No weightings shown.</div>
-  <div class="sec-sub">No gaming possible. Just an honest score from an AI that thinks like a VC.</div>
+  <div class="sec-title">6 criteria. No weightings shown.</div>
+  <div class="sec-sub">The same lens a VC partner uses in the first 5 minutes of reading your deck. No gaming possible.</div>
   <div class="crit-grid">
     <div class="ci"><div class="ci-num">01</div><div class="ci-name">Problem clarity</div><div class="ci-desc">Is the pain real and evidenced?</div></div>
     <div class="ci"><div class="ci-num">02</div><div class="ci-name">Founder-market fit</div><div class="ci-desc">Why is this the right team?</div></div>
@@ -185,34 +180,39 @@ h1 span{color:var(--gold)}
     <div class="ci"><div class="ci-num">06</div><div class="ci-name">Traction signal</div><div class="ci-desc">Validation beyond belief?</div></div>
   </div>
 </section>
+</div>
 
+<div style="border-bottom:1px solid var(--border)">
 <section class="sec">
   <div class="sec-eye">Process</div>
-  <div class="sec-title">Three steps. Fifteen minutes.</div>
-  <div class="sec-sub">No calls. No waiting. Fully automated.</div>
+  <div class="sec-title">Fill. Submit. Read.</div>
+  <div class="sec-sub" style="margin-bottom:20px;">Three steps. No calls. No waiting.</div>
   <div class="steps">
-    <div class="step"><div class="step-num">1</div><div class="step-title">Fill the form below</div><div class="step-desc">Structured dropdowns. 7 minutes. No essays.</div></div>
-    <div class="step"><div class="step-num">2</div><div class="step-title">AI scores your idea</div><div class="step-desc">Claude evaluates like a pre-seed VC partner.</div></div>
-    <div class="step"><div class="step-num">3</div><div class="step-title">Report in your inbox</div><div class="step-desc">Full score breakdown in 15 minutes.</div></div>
+    <div class="step"><div class="step-num">01</div><div class="step-title">Fill the form below</div><div class="step-desc">Structured questions. 7 minutes.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title">AI scores your idea</div><div class="step-desc">Claude evaluates like a VC partner.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title">Report in 2 minutes</div><div class="step-desc">Full breakdown straight to your inbox.</div></div>
   </div>
 </section>
+</div>
 
+<div style="border-bottom:1px solid var(--border)">
 <section class="sec">
   <div class="sec-eye">FAQ</div>
   <div class="sec-title">Common questions.</div>
-  <div style="margin-top:16px;">
-    <div class="faq-item"><div class="faq-q">Who is this for?</div><div class="faq-a">Pre-seed founders in India preparing to approach investors or apply to accelerators like YC, Surge, NSRCEL, or T-Hub.</div></div>
-    <div class="faq-item"><div class="faq-q">How is this different from asking a mentor?</div><div class="faq-a">Mentors are generous. This is anonymous, structured, and consistent — it tells you what the investor thinks, not what a friend thinks.</div></div>
-    <div class="faq-item"><div class="faq-q">Why is it free right now?</div><div class="faq-a">We are in beta. We want real founders to use it and give us feedback before we charge. Your submission helps us improve the scoring model.</div></div>
+  <div style="margin-top:20px;">
+    <div class="faq-item"><div class="faq-q">Who is this for?</div><div class="faq-a">Pre-seed founders in India preparing to pitch investors or apply to accelerators like YC, Surge, NSRCEL, or T-Hub.</div></div>
+    <div class="faq-item"><div class="faq-q">How is this different from asking a mentor?</div><div class="faq-a">Mentors are encouraging. This is anonymous, structured, and consistent — it tells you what the investor actually thinks, not what a friend thinks.</div></div>
+    <div class="faq-item"><div class="faq-q">Why is it free right now?</div><div class="faq-a">We are in beta. Real founder submissions help us improve the scoring model before we charge.</div></div>
     <div class="faq-item"><div class="faq-q">Will my idea be kept confidential?</div><div class="faq-a">Yes. Your submission is only visible to the Pre-Validation OS team. We never share or publish founder submissions.</div></div>
   </div>
 </section>
+</div>
 
 <section class="form-section" id="get-scored">
   <div class="form-header">
     <div class="sec-eye">Submit your idea</div>
-    <div class="sec-title" style="margin-bottom:4px;">Get your investor readiness score.</div>
-    <p style="font-size:13px;color:var(--text3);margin-bottom:0;">Fill every field honestly. The AI only knows what you tell it here.</p>
+    <div class="sec-title" style="margin-bottom:6px;">Get your investor readiness score.</div>
+    <p style="font-size:13px;color:var(--muted);">Answer every question honestly. The AI only knows what you tell it here.</p>
   </div>
 
   <div class="form-wrap">
@@ -220,30 +220,25 @@ h1 span{color:var(--gold)}
 
     <div class="form-instruction">
       <div class="form-instruction-title">Before you start</div>
-      <div class="form-instruction-body">This AI scores you like a real investor reads a pitch deck. It only knows what you tell it here. If you have relevant work experience, say it explicitly. If you have spoken to customers, say how many. Vague answers are penalised the same way they are in a real investor pitch.</div>
+      <div class="form-instruction-body">This AI scores you like a real investor reads a pitch deck. If you have relevant work experience, say it explicitly. If you have spoken to customers, say how many. Vague answers are penalised the same way they are in a real investor pitch.</div>
     </div>
 
     <form id="pvForm">
-
       <div class="form-section-label">Basic info</div>
-
       <div class="form-group">
         <label class="form-label">Your email address <span>*</span></label>
         <input type="email" class="form-input" id="email" placeholder="you@example.com" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Describe your startup idea in 2–3 sentences <span>*</span></label>
         <textarea class="form-textarea" id="idea" placeholder="What does it do, for whom, and how does it work?" required></textarea>
       </div>
 
       <div class="form-section-label">Problem clarity</div>
-
       <div class="form-group">
         <label class="form-label">Describe the problem in one sentence <span>*</span></label>
         <input type="text" class="form-input" id="problem" placeholder="The specific pain your product solves" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Strongest evidence this problem is real <span>*</span></label>
         <select class="form-select" id="problemEvidence" required>
@@ -255,14 +250,12 @@ h1 span{color:var(--gold)}
           <option>Have paying customers with this problem</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">How many people outside your network have you spoken to? <span>*</span></label>
         <input type="number" class="form-input" id="interviews" placeholder="Enter 0 if none" min="0" required>
       </div>
 
       <div class="form-section-label">Founder-market fit</div>
-
       <div class="form-group">
         <label class="form-label">Years of direct work experience in this industry <span>*</span></label>
         <select class="form-select" id="experience" required>
@@ -274,7 +267,6 @@ h1 span{color:var(--gold)}
           <option>10 or more years</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">Have you personally experienced this problem? <span>*</span></label>
         <div class="yn-row">
@@ -283,7 +275,6 @@ h1 span{color:var(--gold)}
         </div>
         <input type="hidden" id="personalExp" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Do you have a co-founder or advisor with domain expertise? <span>*</span></label>
         <div class="yn-row">
@@ -292,14 +283,12 @@ h1 span{color:var(--gold)}
         </div>
         <input type="hidden" id="cofounder" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Most relevant thing about your background for this problem <span>*</span></label>
-        <input type="text" class="form-input" id="background" placeholder="One sentence about your relevant background" required>
+        <input type="text" class="form-input" id="background" placeholder="One sentence" required>
       </div>
 
       <div class="form-section-label">Scalability</div>
-
       <div class="form-group">
         <label class="form-label">How do you plan to charge customers? <span>*</span></label>
         <select class="form-select" id="businessModel" required>
@@ -311,7 +300,6 @@ h1 span{color:var(--gold)}
           <option>Not decided yet</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">Cost to serve one additional customer once built <span>*</span></label>
         <select class="form-select" id="costPerCustomer" required>
@@ -323,7 +311,6 @@ h1 span{color:var(--gold)}
           <option>Not sure yet</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">Can this work outside India without major rebuilding? <span>*</span></label>
         <div class="yn-row">
@@ -334,17 +321,14 @@ h1 span{color:var(--gold)}
       </div>
 
       <div class="form-section-label">Competition awareness</div>
-
       <div class="form-group">
         <label class="form-label">Name your top 2–3 competitors or alternatives <span>*</span></label>
         <input type="text" class="form-input" id="competitors" placeholder="e.g. Competitor A, Competitor B" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Why would a customer choose you over them? <span>*</span></label>
         <input type="text" class="form-input" id="differentiation" placeholder="One sentence" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Could a well-funded competitor copy your advantage in 12 months? <span>*</span></label>
         <div class="yn-row">
@@ -355,12 +339,10 @@ h1 span{color:var(--gold)}
       </div>
 
       <div class="form-section-label">GTM clarity</div>
-
       <div class="form-group">
         <label class="form-label">Name one specific person, company, or community you'd approach first <span>*</span></label>
         <input type="text" class="form-input" id="firstCustomer" placeholder="Be specific — not 'startups' or 'SMEs'" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">How would you reach your first 10 customers? <span>*</span></label>
         <select class="form-select" id="gtmChannel" required>
@@ -373,7 +355,6 @@ h1 span{color:var(--gold)}
           <option>Not sure yet</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">Do you have at least one warm intro to a potential customer right now? <span>*</span></label>
         <div class="yn-row">
@@ -384,7 +365,6 @@ h1 span{color:var(--gold)}
       </div>
 
       <div class="form-section-label">Traction signal</div>
-
       <div class="form-group">
         <label class="form-label">Highest level of validation so far <span>*</span></label>
         <select class="form-select" id="validationLevel" required>
@@ -397,12 +377,10 @@ h1 span{color:var(--gold)}
           <option>Have at least one paying customer</option>
         </select>
       </div>
-
       <div class="form-group">
         <label class="form-label">Total customer interviews done <span>*</span></label>
         <input type="number" class="form-input" id="totalInterviews" placeholder="Enter 0 if none" min="0" required>
       </div>
-
       <div class="form-group">
         <label class="form-label">Has anyone offered to pay you for this, even informally? <span>*</span></label>
         <div class="yn-row">
@@ -416,17 +394,15 @@ h1 span{color:var(--gold)}
         <button type="submit" class="form-submit" id="submitBtn">
           <span id="submitText">Get my investor score</span>
         </button>
-        <p class="submit-note">Your report will arrive in your inbox within 15 minutes</p>
+        <p class="submit-note">Report arrives in your inbox within 2 minutes</p>
       </div>
-
     </form>
 
     <div class="success-state" id="successState">
       <div class="success-icon">✓</div>
       <div class="success-title">Submission received</div>
-      <p class="success-sub">Your investor readiness report is being generated.<br>Check your inbox in the next 15 minutes.<br><br>If you do not see it, check your spam folder.</p>
+      <p class="success-sub">Your investor readiness report is being generated.<br>Check your inbox in the next 2 minutes.<br><br>Check spam if you do not see it.</p>
     </div>
-
   </div>
 </section>
 
@@ -438,104 +414,81 @@ h1 span{color:var(--gold)}
 </section>
 
 <script>
-const WEBHOOK = 'https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
+const WEBHOOK='https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
 
-// Yes/No button handler
-function setYN(btn, fieldId, value) {
-  const row = btn.parentElement;
-  row.querySelectorAll('.yn-btn').forEach(function(b) {
-    b.classList.remove('active-yes','active-no');
-  });
-  if (value === 'Yes') btn.classList.add('active-yes');
-  else btn.classList.add('active-no');
-  
-  const target = document.getElementById(fieldId);
-  target.value = value;
-  
-  // Force progress update
+function setYN(btn,fieldId,value){
+  btn.parentElement.querySelectorAll('.yn-btn').forEach(function(b){b.classList.remove('active-yes','active-no')});
+  btn.classList.add(value==='Yes'?'active-yes':'active-no');
+  document.getElementById(fieldId).value=value;
   updateProgress();
 }
 
-// Progress bar logic
-function updateProgress() {
-  const fields = ['email','idea','problem','problemEvidence','interviews','experience','personalExp','cofounder','background','businessModel','costPerCustomer','outsideIndia','competitors','differentiation','competitorCopy','firstCustomer','gtmChannel','warmIntro','validationLevel','totalInterviews','offeredToPay'];
-  let filled = 0;
-  fields.forEach(function(id) {
-    const el = document.getElementById(id);
-    if (el && el.value && el.value.toString().trim() !== '') filled++;
+function updateProgress(){
+  var fields=['email','idea','problem','problemEvidence','interviews','experience','personalExp','cofounder','background','businessModel','costPerCustomer','outsideIndia','competitors','differentiation','competitorCopy','firstCustomer','gtmChannel','warmIntro','validationLevel','totalInterviews','offeredToPay'];
+  var filled=0;
+  fields.forEach(function(id){
+    var el=document.getElementById(id);
+    if(el && el.value && el.value.toString().trim()!=='') filled++;
   });
-  const progressFill = document.getElementById('progressFill');
-  if(progressFill) {
-    progressFill.style.width = Math.round((filled/fields.length)*100) + '%';
-  }
+  document.getElementById('progressFill').style.width=Math.round((filled/fields.length)*100)+'%';
 }
 
-// Attach event listeners to all standard inputs
-document.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(function(el) {
-  el.addEventListener('input', updateProgress);
-  el.addEventListener('change', updateProgress);
-  el.addEventListener('blur', updateProgress);
+// Add listeners to standard inputs for real-time progress
+document.querySelectorAll('.form-input,.form-textarea,.form-select').forEach(function(el){
+  el.addEventListener('input',updateProgress);
+  el.addEventListener('change',updateProgress);
+  el.addEventListener('blur',updateProgress);
 });
 
-// Form submit logic
-document.getElementById('pvForm').addEventListener('submit', function(e) {
+document.getElementById('pvForm').addEventListener('submit',function(e){
   e.preventDefault();
+  var btn=document.getElementById('submitBtn');
+  var txt=document.getElementById('submitText');
+  btn.disabled=true;
+  txt.textContent='Sending...';
 
-  const btn = document.getElementById('submitBtn');
-  const txt = document.getElementById('submitText');
-  
-  // Disable immediately to prevent spamming
-  btn.disabled = true;
-  txt.textContent = 'Analyzing details...';
-
-  // Explicitly fetch values at the moment of submission
-  // Added .trim() to catch manual entry spaces
-  const data = {
-    tier: 'Full Report (Beta)',
-    email: document.getElementById('email').value.trim(),
-    idea: document.getElementById('idea').value.trim(),
-    problem: document.getElementById('problem').value.trim(),
-    problem_evidence: document.getElementById('problemEvidence').value,
-    interviews_outside_network: document.getElementById('interviews').value,
-    industry_experience: document.getElementById('experience').value,
-    personally_experienced: document.getElementById('personalExp').value,
-    domain_expert_cofounder: document.getElementById('cofounder').value,
-    relevant_background: document.getElementById('background').value.trim(),
-    business_model: document.getElementById('businessModel').value,
-    cost_per_customer: document.getElementById('costPerCustomer').value,
-    works_outside_india: document.getElementById('outsideIndia').value,
-    competitors: document.getElementById('competitors').value.trim(),
-    differentiation: document.getElementById('differentiation').value.trim(),
-    competitor_can_copy: document.getElementById('competitorCopy').value,
-    first_customer_target: document.getElementById('firstCustomer').value.trim(),
-    gtm_channel: document.getElementById('gtmChannel').value,
-    warm_intro: document.getElementById('warmIntro').value,
-    validation_level: document.getElementById('validationLevel').value,
-    total_interviews: document.getElementById('totalInterviews').value,
-    offered_to_pay: document.getElementById('offeredToPay').value
+  // Explicitly fetch and trim values on submit to ensure data is caught
+  var data={
+    tier:'Full Report (Beta)',
+    email:document.getElementById('email').value.trim(),
+    idea:document.getElementById('idea').value.trim(),
+    problem:document.getElementById('problem').value.trim(),
+    problem_evidence:document.getElementById('problemEvidence').value,
+    interviews_outside_network:document.getElementById('interviews').value,
+    industry_experience:document.getElementById('experience').value,
+    personally_experienced:document.getElementById('personalExp').value,
+    domain_expert_cofounder:document.getElementById('cofounder').value,
+    relevant_background:document.getElementById('background').value.trim(),
+    business_model:document.getElementById('businessModel').value,
+    cost_per_customer:document.getElementById('costPerCustomer').value,
+    works_outside_india:document.getElementById('outsideIndia').value,
+    competitors:document.getElementById('competitors').value.trim(),
+    differentiation:document.getElementById('differentiation').value.trim(),
+    competitor_can_copy:document.getElementById('competitorCopy').value,
+    first_customer_target:document.getElementById('firstCustomer').value.trim(),
+    gtm_channel:document.getElementById('gtmChannel').value,
+    warm_intro:document.getElementById('warmIntro').value,
+    validation_level:document.getElementById('validationLevel').value,
+    total_interviews:document.getElementById('totalInterviews').value,
+    offered_to_pay:document.getElementById('offeredToPay').value
   };
 
-  fetch(WEBHOOK, {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(data)
+  fetch(WEBHOOK,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(data)
   })
-  .then(function(res) {
-    // Hide form and show success
-    document.getElementById('pvForm').style.display = 'none';
-    document.getElementById('successState').style.display = 'block';
-    document.getElementById('progressFill').style.width = '100%';
-    // Scroll to success message
-    document.getElementById('get-scored').scrollIntoView({ behavior: 'smooth' });
+  .then(function(){
+    document.getElementById('pvForm').style.display='none';
+    document.getElementById('successState').style.display='block';
+    document.getElementById('progressFill').style.width='100%';
   })
-  .catch(function(err) {
-    console.error('Submission Error:', err);
-    btn.disabled = false;
-    txt.textContent = 'Get my investor score';
-    alert('Something went wrong. Please check your connection and try again.');
+  .catch(function(){
+    btn.disabled=false;
+    txt.textContent='Get my investor score';
+    alert('Something went wrong. Please try again.');
   });
 });
 </script>
-
 </body>
 </html>
