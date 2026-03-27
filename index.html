@@ -145,37 +145,34 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .loading-title{font-size:18px;font-weight:700;color:var(--h1);margin-bottom:8px}
 .loading-sub{font-size:13px;color:var(--muted);line-height:1.6}
 
-/* RESULTS */
-.results-area{display:none;width:100%;max-width:1100px;margin:0 auto;padding:40px 48px 64px}
+/* RESULTS — Newspaper layout */
+.results-area{display:none;width:100%;max-width:960px;margin:0 auto;padding:56px 48px 72px}
 .results-area.visible{display:block}
 
-/* Top row: score card left, signals right */
-.results-top-row{display:grid;grid-template-columns:220px 1fr;gap:16px;margin-bottom:0;align-items:start}
-.result-hero{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;height:100%}
-.score-number{font-size:56px;font-weight:700;color:var(--h1);line-height:1;letter-spacing:-.02em}
-.score-denom{font-size:20px;color:var(--muted);font-weight:400}
-.grade-badge{display:inline-block;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.04em}
+/* Kicker */
+.r-kicker{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:12px}
+
+/* Headline */
+.r-headline{font-size:clamp(22px,2.8vw,36px);font-weight:700;color:var(--h1);line-height:1.2;letter-spacing:-.02em;margin-bottom:24px;max-width:820px}
+
+/* Meta bar */
+.r-meta{display:flex;align-items:center;gap:20px;padding:16px 0;border-top:2px solid var(--h1);border-bottom:1px solid var(--border);margin-bottom:32px}
+.r-score-big{font-size:42px;font-weight:700;color:var(--h1);line-height:1;letter-spacing:-.02em;flex-shrink:0}
+.r-score-denom{font-size:16px;color:var(--muted);font-weight:400}
+.r-score-label{font-size:11px;color:var(--muted);line-height:1.5}
+.grade-badge{display:inline-block;font-size:10px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:.04em;margin-left:auto;flex-shrink:0}
 .grade-strong{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
 .grade-promising{background:rgba(124,58,237,0.1);color:var(--purple-light);border:1px solid rgba(124,58,237,0.25)}
 .grade-weak{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
 .grade-notready{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
-.score-label{font-size:12px;color:var(--muted);line-height:1.5}
 
-/* Signals column */
-.signals-col{display:grid;gap:10px}
-
-.results-section-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:10px}
-
-/* Criteria 3-col grid */
-.crit-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
-.crit-result-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 16px}
-.crit-result-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
-.crit-result-name{font-size:12px;font-weight:700;color:#e8e8f0}
-.crit-result-weight{font-size:10px;color:var(--muted);margin-left:4px}
-.crit-result-score{font-size:17px;font-weight:700}
-.crit-bar-track{height:2px;background:var(--border2);border-radius:2px;margin-bottom:10px;overflow:hidden}
-.crit-bar-fill{height:100%;border-radius:2px;transition:width .8s ease}
-.crit-reasoning{font-size:11px;color:#9090aa;line-height:1.6}
+/* Scores strip */
+.r-scores-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:36px}
+.r-sc{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 10px;text-align:center}
+.r-sc-name{font-size:10px;color:var(--muted);margin-bottom:6px;line-height:1.3}
+.r-sc-num{font-size:20px;font-weight:700}
+.r-sc-bar{height:2px;background:var(--border2);border-radius:2px;margin-top:6px;overflow:hidden}
+.r-sc-fill{height:100%;border-radius:2px}
 
 /* Score colours */
 .score-high{color:#22c55e}.bar-high{background:#22c55e}
@@ -183,24 +180,25 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .score-low{color:#f59e0b}.bar-low{background:#f59e0b}
 .score-bad{color:#ef4444}.bar-bad{background:#ef4444}
 
-/* Signal boxes */
-.signal-box{border-radius:12px;padding:16px 18px}
+/* Two-column analysis */
+.r-cols{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
+.r-col-head{font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid var(--border)}
+.r-col-head.works{color:var(--green);border-color:rgba(34,197,94,0.2)}
+.r-col-head.doesnt{color:var(--red);border-color:rgba(239,68,68,0.2)}
+.r-col-para{font-size:13px;color:#b0b0c8;line-height:1.8;margin-bottom:14px}
+.r-col-para:last-child{margin-bottom:0}
 
-.rejection-box{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2)}
-.rejection-box .signal-label{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#f87171;margin-bottom:6px}
-.rejection-box .signal-text{font-size:12px;color:#fda4a4;line-height:1.7}
+/* Verdict */
+.r-verdict{border-top:2px solid var(--h1);padding-top:24px;margin-bottom:12px}
+.r-verdict-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:12px}
+.r-verdict-text{font-size:15px;color:#c8c8e0;line-height:1.85;font-style:italic;border-left:3px solid var(--amber);padding-left:18px;border-radius:0}
 
-.priority-box{background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2)}
-.priority-box .signal-label{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--purple-light);margin-bottom:6px}
-.priority-box .signal-text{font-size:12px;color:#c4b5fd;line-height:1.7}
+/* Priority fix */
+.r-fix{background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2);border-radius:12px;padding:18px 22px;margin-top:20px}
+.r-fix-label{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--purple-light);font-weight:700;margin-bottom:8px}
+.r-fix-text{font-size:13px;color:#c4b5fd;line-height:1.75}
 
-.verdict-box{background:var(--surface);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:16px 18px}
-.verdict-box .signal-label{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
-.verdict-box .signal-text{font-size:12px;color:#a0a0bc;line-height:1.7;font-style:italic}
-
-.results-footer{text-align:center;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);margin-top:20px}
-.results-footer a{color:var(--purple-light);text-decoration:none}
-
+.results-footer{text-align:center;padding-top:28px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);margin-top:32px}
 .btn-restart{margin-top:14px;padding:9px 22px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--body);font-family:'Inter',sans-serif;transition:all .15s}
 .btn-restart:hover{color:var(--h1);border-color:var(--muted)}
 
@@ -224,9 +222,9 @@ h1 em{font-style:normal;color:var(--purple-light)}
   .form-outer-header{padding:52px 24px 0}
   .mode-selector{grid-template-columns:1fr;max-width:380px}
   .form-area,.deck-area{padding:28px 24px 48px}
-  .results-area{padding:24px 16px 48px}
-  .results-top-row{grid-template-columns:1fr}
-  .crit-cards{grid-template-columns:1fr 1fr}
+  .results-area{padding:32px 20px 48px}
+  .r-cols{grid-template-columns:1fr}
+  .r-scores-strip{grid-template-columns:repeat(3,1fr)}
   .footer-cta{padding:56px 24px}
 }
 </style>
@@ -464,29 +462,34 @@ h1 em{font-style:normal;color:var(--purple-light)}
 
   <!-- RESULTS -->
   <div class="results-area" id="resultsArea">
-    <div class="results-top-row">
-      <div class="result-hero">
-        <div class="score-number" id="rScore">—<span class="score-denom">/10</span></div>
-        <div class="grade-badge" id="rGrade">—</div>
-        <div class="score-label">Weighted score across<br>6 investor criteria</div>
+    <div class="r-kicker">Investor readiness report · Pre-Validation OS</div>
+    <div class="r-headline" id="rHeadline">—</div>
+    <div class="r-meta">
+      <div>
+        <div class="r-score-big" id="rScore">—<span class="r-score-denom">/10</span></div>
       </div>
-      <div class="signals-col">
-        <div class="signal-box rejection-box">
-          <div class="signal-label">Top rejection risk</div>
-          <div class="signal-text" id="rRejection">—</div>
-        </div>
-        <div class="signal-box priority-box">
-          <div class="signal-label">Priority fix — next 30 days</div>
-          <div class="signal-text" id="rPriority">—</div>
-        </div>
-        <div class="verdict-box">
-          <div class="signal-label">Investor verdict</div>
-          <div class="signal-text" id="rVerdict">—</div>
-        </div>
+      <div class="r-score-label">Overall score<br>across 6 criteria</div>
+      <div class="grade-badge" id="rGrade">—</div>
+    </div>
+    <div class="r-scores-strip" id="rScoresStrip"></div>
+    <div class="r-cols">
+      <div>
+        <div class="r-col-head works">What works in your favour</div>
+        <div id="rWorks"></div>
+      </div>
+      <div>
+        <div class="r-col-head doesnt">What is holding you back</div>
+        <div id="rDoesnt"></div>
       </div>
     </div>
-    <div class="results-section-label" style="margin-top:28px">Score breakdown</div>
-    <div class="crit-cards" id="critCards"></div>
+    <div class="r-verdict">
+      <div class="r-verdict-label">Investor verdict</div>
+      <div class="r-verdict-text" id="rVerdict">—</div>
+    </div>
+    <div class="r-fix">
+      <div class="r-fix-label">Priority fix — next 30 days</div>
+      <div class="r-fix-text" id="rPriority">—</div>
+    </div>
     <div class="results-footer">
       Pre-Validation OS · Beta &nbsp;·&nbsp; A copy has been sent to your inbox.
       <br><button class="btn-restart" onclick="resetAll()">Score another idea</button>
@@ -636,32 +639,80 @@ var criteriaConfig=[
   {key:'traction_signal',label:'Traction signal',weight:'10%'},
 ];
 
+function makeHeadline(data){
+  var score=data.overall_score;
+  var grade=data.overall_grade;
+  // Pull top strength (highest scoring criteria)
+  var keys=Object.keys(data.scores);
+  var best=keys.reduce(function(a,b){return data.scores[a].score>=data.scores[b].score?a:b});
+  var worst=keys.reduce(function(a,b){return data.scores[a].score<=data.scores[b].score?a:b});
+  var bestLabel=criteriaConfig.find(function(c){return c.key===best}).label.toLowerCase();
+  var worstLabel=criteriaConfig.find(function(c){return c.key===worst}).label.toLowerCase();
+  if(score>=8.5) return 'This is the kind of startup Indian VCs are looking for right now.';
+  if(score>=7) return 'Strong foundations — close the gaps and this is a fundable story.';
+  if(score>=5.5) return 'The '+bestLabel+' is real. The '+worstLabel+' is what stands between you and a term sheet.';
+  if(score>=4) return 'The idea has potential. The execution readiness does not — yet.';
+  return 'Go back to the customer. Everything else can wait.';
+}
+
+function splitCriteria(data){
+  var keys=Object.keys(data.scores);
+  var works=[], doesnt=[];
+  keys.forEach(function(k){
+    var sc=data.scores[k];
+    if(sc.score>=6) works.push({key:k,score:sc.score,reasoning:sc.reasoning});
+    else doesnt.push({key:k,score:sc.score,reasoning:sc.reasoning});
+  });
+  // fallback: if all high or all low, split by median
+  if(works.length===0){works=doesnt.splice(0,3);}
+  if(doesnt.length===0){doesnt=works.splice(Math.ceil(works.length/2));}
+  return{works:works,doesnt:doesnt};
+}
+
 function renderResults(data){
   document.getElementById('loadingState').classList.remove('visible');
 
+  // Headline
+  document.getElementById('rHeadline').textContent=makeHeadline(data);
+
+  // Score + grade
   var score=data.overall_score;
-  document.getElementById('rScore').innerHTML=score+'<span class="score-denom">/10</span>';
-
-  var grade=data.overall_grade;
+  document.getElementById('rScore').innerHTML=score+'<span class="r-score-denom">/10</span>';
   var gEl=document.getElementById('rGrade');
-  gEl.textContent=grade;
-  gEl.className='grade-badge '+gradeClass(grade);
+  gEl.textContent=data.overall_grade;
+  gEl.className='grade-badge '+gradeClass(data.overall_grade);
 
-  var cards='';
+  // Scores strip
+  var strip='';
   criteriaConfig.forEach(function(c){
     var sc=data.scores[c.key];
     var col=scoreColor(sc.score);
-    cards+='<div class="crit-result-card">';
-    cards+='<div class="crit-result-top"><div><span class="crit-result-name">'+c.label+'</span><span class="crit-result-weight">'+c.weight+'</span></div><span class="crit-result-score '+col.score+'">'+sc.score+'/10</span></div>';
-    cards+='<div class="crit-bar-track"><div class="crit-bar-fill '+col.bar+'" style="width:'+(sc.score*10)+'%"></div></div>';
-    cards+='<div class="crit-reasoning">'+sc.reasoning+'</div>';
-    cards+='</div>';
+    var shortName=c.label.replace('Founder-market fit','Founder fit').replace('Competition awareness','Competition');
+    strip+='<div class="r-sc">';
+    strip+='<div class="r-sc-name">'+shortName+'</div>';
+    strip+='<div class="r-sc-num '+col.score+'">'+sc.score+'</div>';
+    strip+='<div class="r-sc-bar"><div class="r-sc-fill '+col.bar+'" style="width:'+(sc.score*10)+'%"></div></div>';
+    strip+='</div>';
   });
-  document.getElementById('critCards').innerHTML=cards;
+  document.getElementById('rScoresStrip').innerHTML=strip;
 
-  document.getElementById('rRejection').textContent=data.rejection_risk;
-  document.getElementById('rPriority').textContent=data.priority_fix;
+  // Two columns
+  var split=splitCriteria(data);
+  var worksHtml='', doesntHtml='';
+  split.works.forEach(function(item){
+    var label=criteriaConfig.find(function(c){return c.key===item.key}).label;
+    worksHtml+='<p class="r-col-para"><strong style="color:#e8e8f0;font-weight:600">'+label+'</strong> — '+item.reasoning+'</p>';
+  });
+  split.doesnt.forEach(function(item){
+    var label=criteriaConfig.find(function(c){return c.key===item.key}).label;
+    doesntHtml+='<p class="r-col-para"><strong style="color:#e8e8f0;font-weight:600">'+label+'</strong> — '+item.reasoning+'</p>';
+  });
+  document.getElementById('rWorks').innerHTML=worksHtml||'<p class="r-col-para">—</p>';
+  document.getElementById('rDoesnt').innerHTML=doesntHtml||'<p class="r-col-para">—</p>';
+
+  // Verdict + priority fix
   document.getElementById('rVerdict').textContent=data.investor_verdict;
+  document.getElementById('rPriority').textContent=data.priority_fix;
 
   document.getElementById('resultsArea').classList.add('visible');
   document.getElementById('resultsArea').scrollIntoView({behavior:'smooth'});
