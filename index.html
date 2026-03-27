@@ -5,488 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pre-Validation OS — Know why investors would reject your startup</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#04040a;
-  --surface:#08080f;
-  --surface2:#0d0d18;
-  --border:#151525;
-  --border2:#1e1e35;
-  --cyan:#00f5ff;
-  --cyan-dim:rgba(0,245,255,0.08);
-  --cyan-glow:rgba(0,245,255,0.25);
-  --magenta:#ff2d7a;
-  --mag-dim:rgba(255,45,122,0.08);
-  --h1:#eeeeff;
-  --body:#7878a0;
-  --muted:#4a4a6a;
-  --faint:#252540;
-  --green:#39ff8a;
-  --red:#ff3a5c;
+  --bg:#0a0a0f;--surface:#111118;--surface2:#16161f;
+  --border:#1e1e2e;--border2:#252538;
+  --purple:#7c3aed;--purple-light:#9b5cf6;
+  --purple-dim:rgba(124,58,237,0.1);--purple-glow:rgba(124,58,237,0.28);
+  --h1:#e8e8f0;--body:#6b6b8a;--muted:#4a4a62;--faint:#2a2a3e;
+  --green:#22c55e;--red:#ef4444;
 }
 html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--body);
-  font-family:'Barlow',sans-serif;
-  font-size:15px;
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-
-/* SCANLINE overlay */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.03) 2px,
-    rgba(0,0,0,0.03) 4px
-  );
-  pointer-events:none;
-  z-index:1000;
-}
+body{background:var(--bg);color:var(--body);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* NAV */
-nav{
-  background:rgba(4,4,10,0.9);
-  border-bottom:1px solid var(--border2);
-  padding:14px 48px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
-  backdrop-filter:blur(16px);
-}
+nav{background:rgba(10,10,15,0.9);border-bottom:1px solid var(--border);padding:14px 48px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;backdrop-filter:blur(20px)}
 .logo{display:flex;align-items:center;gap:10px}
-.logo-sq{
-  width:28px;height:28px;
-  background:transparent;
-  border:1px solid var(--cyan);
-  border-radius:3px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;
-  color:var(--cyan);
-  font-family:'Space Mono',monospace;
-  box-shadow:0 0 8px var(--cyan-glow), inset 0 0 8px rgba(0,245,255,0.05);
-}
-.logo-txt{
-  font-size:12px;font-weight:400;
-  color:var(--h1);
-  font-family:'Space Mono',monospace;
-  letter-spacing:.05em;
-}
+.logo-sq{width:28px;height:28px;background:var(--purple);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff}
+.logo-txt{font-size:14px;font-weight:600;color:var(--h1)}
 .nav-right{display:flex;align-items:center;gap:14px}
-.beta-pill{
-  font-size:9px;padding:3px 10px;border-radius:2px;
-  background:transparent;
-  color:var(--cyan);
-  border:1px solid var(--cyan);
-  letter-spacing:.12em;
-  font-weight:400;
-  font-family:'Space Mono',monospace;
-  text-transform:uppercase;
-}
-.nav-cta{
-  padding:8px 20px;border-radius:2px;font-size:11px;font-weight:700;
-  background:var(--cyan);color:#04040a;border:none;cursor:pointer;
-  font-family:'Space Mono',monospace;text-decoration:none;
-  letter-spacing:.05em;
-  transition:box-shadow .2s, transform .15s;
-  text-transform:uppercase;
-}
-.nav-cta:hover{box-shadow:0 0 20px var(--cyan-glow);transform:translateY(-1px)}
+.beta-pill{font-size:10px;padding:4px 10px;border-radius:20px;background:var(--purple-dim);color:var(--purple-light);border:1px solid rgba(124,58,237,0.25);letter-spacing:.04em;font-weight:500}
+.nav-cta{padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;background:var(--purple);color:#fff;border:none;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;transition:all .15s}
+.nav-cta:hover{background:var(--purple-light);box-shadow:0 0 20px var(--purple-glow)}
 
-/* ══════════════════════════════
-   HERO — full viewport
-══════════════════════════════ */
+/* HERO — fits in viewport with nav */
 .hero-wrap{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  min-height:calc(100vh - 57px);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
   text-align:center;
-  padding:0 40px;
-  position:relative;
-  overflow:hidden;
+  padding:40px 48px 48px;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
 }
-
-/* Grid background */
-.hero-wrap::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background-image:
-    linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px);
-  background-size:60px 60px;
-  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
-  pointer-events:none;
-}
-
-/* Glow orbs */
-.hero-wrap::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0,245,255,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 30% 25% at 20% 70%, rgba(255,45,122,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 25% 20% at 80% 20%, rgba(0,245,255,0.04) 0%, transparent 60%);
-  pointer-events:none;
-}
-
-.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
-
-/* Staggered fade-in */
-.hero-inner > *{opacity:0;animation:fadeUp .7s ease forwards}
-.eyebrow{animation-delay:.1s}
-h1{animation-delay:.25s}
-.sub{animation-delay:.4s}
-.hero-btns{animation-delay:.55s}
-.hero-note{animation-delay:.65s}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:10px;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--cyan);
-  margin-bottom:28px;
-  font-family:'Space Mono',monospace;
-}
-.eyebrow::before,.eyebrow::after{
-  content:'';display:block;width:24px;height:1px;background:var(--cyan);opacity:0.5;
-}
-
+.hero-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(124,58,237,0.07) 0%,transparent 65%);pointer-events:none}
+.eyebrow{display:inline-block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--border2);padding:6px 16px;border-radius:20px;margin-bottom:28px;font-weight:500;position:relative}
+/* THE KEY FIX: h1 constrained to 2 lines */
 h1{
-  font-family:'Barlow',sans-serif;
-  font-size:clamp(44px,6.5vw,88px);
+  font-size:clamp(30px,4vw,60px);
   font-weight:900;
-  line-height:1.0;
+  line-height:1.1;
   color:var(--h1);
-  margin-bottom:24px;
-  letter-spacing:-0.03em;
-  text-transform:uppercase;
+  margin-bottom:20px;
+  letter-spacing:-.03em;
+  max-width:840px;
+  margin-left:auto;
+  margin-right:auto;
 }
-h1 em{
-  font-style:normal;
-  color:var(--cyan);
-  position:relative;
-  display:inline-block;
-}
-/* Glitch flicker on the accent word */
-h1 em::after{
-  content:attr(data-text);
-  position:absolute;
-  inset:0;
-  color:var(--magenta);
-  clip-path:inset(40% 0 50% 0);
-  animation:glitch 4s infinite steps(1);
-  opacity:0.7;
-}
-@keyframes glitch{
-  0%,90%,100%{clip-path:inset(100% 0 0 0);transform:translate(0)}
-  91%{clip-path:inset(20% 0 60% 0);transform:translate(-3px,1px)}
-  93%{clip-path:inset(60% 0 20% 0);transform:translate(3px,-1px)}
-  95%{clip-path:inset(40% 0 40% 0);transform:translate(-2px,0)}
-  97%{clip-path:inset(10% 0 80% 0);transform:translate(2px,1px)}
-}
+@media(max-width:700px){h1{font-size:clamp(24px,7vw,36px)}}
+h1 em{font-style:normal;color:var(--purple-light)}
+.sub{font-size:17px;color:var(--body);line-height:1.65;max-width:500px;margin:0 auto 32px;font-weight:400;position:relative}
+.btn-hero{padding:15px 36px;border-radius:12px;font-size:15px;font-weight:700;border:none;background:var(--purple);color:#fff;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .2s;box-shadow:0 0 28px var(--purple-glow);margin-bottom:20px;position:relative}
+.btn-hero:hover{background:var(--purple-light);transform:translateY(-2px);box-shadow:0 0 44px var(--purple-glow)}
+.btn-beta-tag{font-size:11px;background:rgba(255,255,255,0.15);padding:3px 9px;border-radius:8px;letter-spacing:.03em;border:1px solid rgba(255,255,255,0.2)}
+.hero-note{font-size:13px;color:var(--muted);position:relative}
 
-.sub{
-  font-size:16px;
-  color:var(--body);
-  line-height:1.7;
-  max-width:500px;
-  margin:0 auto 40px;
-  font-weight:300;
-  letter-spacing:.01em;
-}
-
-.hero-btns{display:flex;gap:12px;justify-content:center;margin-bottom:16px}
-.btn-primary{
-  padding:15px 36px;
-  border-radius:2px;
-  font-size:12px;
-  font-weight:700;
-  border:none;
-  background:var(--cyan);
-  color:#04040a;
-  cursor:pointer;
-  font-family:'Space Mono',monospace;
-  text-decoration:none;
-  display:inline-flex;align-items:center;gap:10px;
-  transition:box-shadow .2s, transform .15s;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-  box-shadow:0 0 24px var(--cyan-glow);
-}
-.btn-primary:hover{box-shadow:0 0 48px rgba(0,245,255,0.5);transform:translateY(-2px)}
-.btn-beta-tag{
-  font-size:9px;background:rgba(0,0,0,0.25);
-  padding:2px 8px;border-radius:1px;letter-spacing:.08em;
-  border:1px solid rgba(255,255,255,0.2);
-}
-.hero-note{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.05em}
-
-/* ══════════════════════════════
-   STATS BAR
-══════════════════════════════ */
-.stats-wrap{border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);max-width:600px;margin:0 auto}
-.stat{
-  text-align:center;padding:20px 8px;
-  border-right:1px solid var(--border2);
-  position:relative;
-}
+/* STATS — inside hero at bottom */
+.stats{display:flex;justify-content:center;gap:0;margin-top:40px;border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:480px;width:100%;position:relative}
+.stat{flex:1;text-align:center;padding:18px 12px;border-right:1px solid var(--border);background:var(--surface)}
 .stat:last-child{border-right:none}
-.stat-n{
-  font-size:26px;font-weight:700;color:var(--cyan);
-  font-family:'Space Mono',monospace;
-}
-.stat-l{font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:.08em;text-transform:uppercase;font-family:'Space Mono',monospace}
+.stat-n{font-size:22px;font-weight:800;color:var(--h1);letter-spacing:-.02em}
+.stat-l{font-size:11px;color:var(--muted);margin-top:3px;font-weight:400}
 
-/* ══════════════════════════════
-   SECTIONS
-══════════════════════════════ */
-.sec-wrap{border-bottom:1px solid var(--border2)}
-.sec{padding:56px 48px;max-width:760px;margin:0 auto}
-.sec-eye{
-  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--cyan);margin-bottom:12px;
-  font-family:'Space Mono',monospace;
-  display:flex;align-items:center;gap:10px;
-}
-.sec-eye::after{content:'';display:block;width:32px;height:1px;background:var(--cyan);opacity:0.4}
-.sec-title{font-size:26px;font-weight:800;color:var(--h1);margin-bottom:6px;letter-spacing:-0.02em;text-transform:uppercase}
-.sec-sub{font-size:13px;color:var(--muted);margin-bottom:28px;line-height:1.6}
+/* SECTIONS */
+.sec-wrap{border-bottom:1px solid var(--border)}
+.sec{padding:80px 48px;max-width:900px;margin:0 auto;text-align:center}
+.sec-eye{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:500}
+.sec-title{font-size:clamp(28px,3.5vw,48px);font-weight:900;color:var(--h1);margin-bottom:10px;letter-spacing:-.03em;line-height:1.05}
+.sec-sub{font-size:15px;color:var(--body);margin-bottom:36px;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto}
 
-.crit-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;background:var(--border2);
-  border:1px solid var(--border2);border-radius:2px;overflow:hidden;
-}
-.ci{background:var(--surface);padding:18px 20px;transition:background .2s}
-.ci:hover{background:var(--surface2)}
-.ci-num{font-size:9px;color:var(--cyan);letter-spacing:.15em;margin-bottom:7px;font-family:'Space Mono',monospace}
-.ci-name{font-size:13px;font-weight:700;color:var(--h1);margin-bottom:4px;letter-spacing:.01em}
-.ci-desc{font-size:12px;color:var(--muted)}
+.crit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+.ci{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;transition:border-color .2s}
+.ci:hover{border-color:var(--border2)}
+.ci-num{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:10px}
+.ci-name{font-size:16px;font-weight:700;color:var(--h1);margin-bottom:5px;letter-spacing:-.01em}
+.ci-desc{font-size:13px;color:var(--body)}
 
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border2);border:1px solid var(--border2);border-radius:2px;overflow:hidden}
-.step-item{background:var(--surface);padding:22px 20px}
-.step-num{font-size:9px;color:var(--cyan);letter-spacing:.15em;margin-bottom:12px;font-family:'Space Mono',monospace}
-.step-title{font-size:13px;font-weight:700;color:var(--h1);margin-bottom:5px;letter-spacing:.01em}
-.step-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left}
+.step-item{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 22px}
+.step-icon{width:38px;height:38px;background:var(--purple-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--purple-light);margin-bottom:14px}
+.step-title{font-size:15px;font-weight:700;color:var(--h1);margin-bottom:5px}
+.step-desc{font-size:13px;color:var(--body);line-height:1.5}
 
-.faq-item{padding:16px 0;border-bottom:1px solid var(--border)}
-.faq-item:last-child{border-bottom:none}
-.faq-q{font-size:13px;font-weight:700;color:var(--h1);margin-bottom:6px;letter-spacing:.01em}
-.faq-a{font-size:13px;color:var(--muted);line-height:1.6}
+.faq-list{text-align:left;max-width:660px;margin:0 auto}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.faq-q{padding:17px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--h1);user-select:none}
+.faq-q::after{content:'↓';font-size:13px;color:var(--muted);transition:transform .25s;flex-shrink:0;margin-left:12px}
+.faq-item.open .faq-q::after{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease;font-size:13px;color:var(--body);line-height:1.65;padding:0 20px}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
 
-/* ══════════════════════════════
-   FORM SECTION
-══════════════════════════════ */
-.form-outer{border-bottom:1px solid var(--border2);background:var(--bg)}
-.form-outer-header{padding:56px 48px 0;text-align:center;max-width:760px;margin:0 auto}
+/* FORM SECTION */
+.form-outer{background:var(--bg)}
+.form-outer-header{padding:72px 48px 64px;text-align:center;max-width:760px;margin:0 auto}
 
-.mode-selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:580px;margin:28px auto 0}
-.mode-card{
-  background:var(--surface);border:1px solid var(--border2);border-radius:2px;
-  padding:20px;cursor:pointer;transition:border-color .2s,background .2s;text-align:left;
-}
-.mode-card:hover{border-color:var(--cyan)}
-.mode-card.active{border-color:var(--cyan);background:var(--cyan-dim);box-shadow:inset 0 0 20px rgba(0,245,255,0.03)}
-.mode-card-icon{font-size:18px;margin-bottom:10px}
-.mode-card-title{font-size:12px;font-weight:700;color:var(--h1);margin-bottom:4px;font-family:'Space Mono',monospace;letter-spacing:.03em}
-.mode-card-desc{font-size:11px;color:var(--muted)}
+.mode-selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:540px;margin:28px auto 0}
+.mode-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 20px;cursor:pointer;transition:all .2s;text-align:left}
+.mode-card:hover{border-color:var(--purple)}
+.mode-card.active{border-color:var(--purple);background:var(--surface2);box-shadow:0 0 0 1px rgba(124,58,237,0.15)}
+.mode-card-icon{font-size:20px;margin-bottom:10px}
+.mode-card-title{font-size:14px;font-weight:700;color:var(--h1);margin-bottom:3px}
+.mode-card-desc{font-size:12px;color:var(--body)}
 
-.form-container{max-width:580px;margin:0 auto;padding:36px 48px 60px;display:none}
-.form-container.visible{display:block}
+.form-area{max-width:520px;margin:0 auto;padding:36px 48px 64px;display:none}
+.form-area.visible{display:block}
 
-.progress-wrap{margin-bottom:32px}
-.progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.progress-label{font-size:10px;color:var(--muted);font-family:'Space Mono',monospace;letter-spacing:.05em}
-.progress-count{font-size:10px;color:var(--cyan);font-family:'Space Mono',monospace}
-.progress-track{height:1px;background:var(--border2);border-radius:0;overflow:hidden}
-.progress-fill{height:100%;background:var(--cyan);border-radius:0;transition:width .4s ease;box-shadow:0 0 6px var(--cyan-glow)}
+.progress-wrap{margin-bottom:28px}
+.progress-top{display:flex;justify-content:space-between;margin-bottom:9px}
+.progress-label{font-size:12px;color:var(--muted);font-weight:500}
+.progress-count{font-size:12px;color:var(--purple-light);font-weight:600}
+.progress-track{height:3px;background:var(--border2);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:var(--purple);border-radius:3px;transition:width .4s ease}
 
-.step-card{display:none;animation:slideIn .3s ease}
+.step-card{display:none;animation:fadeSlide .28s ease}
 .step-card.active{display:block}
-@keyframes slideIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
-@keyframes slideBack{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
-.step-card.slide-back{animation:slideBack .3s ease}
+.step-card.slide-back{animation:fadeSlideBack .28s ease}
+@keyframes fadeSlide{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeSlideBack{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
 
-.step-header{margin-bottom:26px}
-.step-section-eye{
-  font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--cyan);margin-bottom:8px;font-family:'Space Mono',monospace;
-}
-.step-section-title{font-size:20px;font-weight:800;color:var(--h1);letter-spacing:-0.01em;text-transform:uppercase}
+.step-header{margin-bottom:24px}
+.step-eye{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:500}
+.step-title-form{font-size:22px;font-weight:800;color:var(--h1);letter-spacing:-.02em}
 
-.fg{margin-bottom:20px}
-.fl{font-size:11px;font-weight:600;color:var(--h1);margin-bottom:8px;display:block;letter-spacing:.06em;text-transform:uppercase;font-family:'Space Mono',monospace}
-.fl span{color:var(--cyan);margin-left:2px}
-.fi,.fta,.fsel{
-  width:100%;background:var(--surface);
-  border:1px solid var(--border2);border-radius:2px;
-  padding:11px 14px;font-size:13px;color:var(--h1);
-  font-family:'Barlow',sans-serif;
-  transition:border-color .15s, box-shadow .15s;
-  outline:none;-webkit-appearance:none;
-}
-.fi:focus,.fta:focus,.fsel:focus{
-  border-color:var(--cyan);
-  box-shadow:0 0 12px rgba(0,245,255,0.1);
-}
+.fg{margin-bottom:18px}
+.fl{font-size:13px;font-weight:600;color:var(--h1);margin-bottom:7px;display:block}
+.fl span{color:var(--purple-light);margin-left:2px}
+.fi,.fta,.fsel{width:100%;background:var(--surface);border:1px solid var(--border2);border-radius:9px;padding:11px 14px;font-size:14px;color:var(--h1);font-family:'Inter',sans-serif;transition:border-color .15s,box-shadow .15s;outline:none;-webkit-appearance:none}
+.fi:focus,.fta:focus,.fsel:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(124,58,237,0.1)}
 .fi::placeholder,.fta::placeholder{color:var(--muted)}
-.fta{resize:none;line-height:1.6;min-height:90px}
-.fsel{
-  cursor:pointer;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300f5ff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;
-}
-.fsel option{background:#08080f;color:var(--h1)}
+.fta{resize:none;line-height:1.6;min-height:88px}
+.fsel{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a4a62' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.fsel option{background:#16161f;color:var(--h1)}
 
 .yn-row{display:flex;gap:8px}
-.yn-btn{
-  flex:1;padding:10px;border-radius:2px;font-size:12px;font-weight:600;
-  cursor:pointer;border:1px solid var(--border2);
-  background:var(--surface);color:var(--body);
-  font-family:'Space Mono',monospace;transition:all .15s;text-align:center;
-  letter-spacing:.04em;
-}
-.yn-btn:hover{border-color:var(--cyan);color:var(--h1);box-shadow:0 0 10px rgba(0,245,255,0.12)}
-.yn-btn.active-yes{background:rgba(57,255,138,0.08);border-color:var(--green);color:var(--green)}
-.yn-btn.active-no{background:rgba(255,58,92,0.08);border-color:var(--red);color:var(--red)}
+.yn-btn{flex:1;padding:11px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:var(--surface);color:var(--body);font-family:'Inter',sans-serif;transition:all .15s;text-align:center}
+.yn-btn:hover{border-color:var(--purple);color:var(--h1)}
+.yn-btn.active-yes{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.35);color:var(--green)}
+.yn-btn.active-no{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.35);color:var(--red)}
 
-.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--border)}
-.btn-back{
-  padding:10px 22px;border-radius:2px;font-size:11px;font-weight:400;
-  cursor:pointer;border:1px solid var(--border2);background:transparent;
-  color:var(--muted);font-family:'Space Mono',monospace;transition:all .15s;
-  letter-spacing:.05em;text-transform:uppercase;
-}
-.btn-back:hover{color:var(--h1);border-color:var(--body)}
-.btn-next{
-  padding:10px 26px;border-radius:2px;font-size:11px;font-weight:700;
-  cursor:pointer;border:none;background:var(--cyan);color:#04040a;
-  font-family:'Space Mono',monospace;transition:box-shadow .2s, transform .15s;
-  display:flex;align-items:center;gap:6px;
-  letter-spacing:.06em;text-transform:uppercase;
-}
-.btn-next:hover{box-shadow:0 0 20px var(--cyan-glow);transform:translateY(-1px)}
-.btn-next:disabled{opacity:.35;cursor:not-allowed;box-shadow:none;transform:none}
-.btn-submit{
-  width:100%;padding:14px;border-radius:2px;font-size:12px;font-weight:700;
-  border:none;background:var(--cyan);color:#04040a;cursor:pointer;
-  font-family:'Space Mono',monospace;transition:box-shadow .2s, transform .15s;
-  letter-spacing:.08em;text-transform:uppercase;
-  box-shadow:0 0 24px var(--cyan-glow);
-}
-.btn-submit:hover{box-shadow:0 0 40px rgba(0,245,255,0.5);transform:translateY(-1px)}
-.btn-submit:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;transform:none}
+.step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--border)}
+.btn-back{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--body);font-family:'Inter',sans-serif;transition:all .15s}
+.btn-back:hover{color:var(--h1);border-color:var(--muted)}
+.btn-next{padding:10px 24px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:none;background:var(--purple);color:#fff;font-family:'Inter',sans-serif;transition:all .15s;display:flex;align-items:center;gap:6px}
+.btn-next:hover{background:var(--purple-light);box-shadow:0 0 14px var(--purple-glow)}
+.btn-submit{width:100%;padding:13px;border-radius:9px;font-size:14px;font-weight:700;border:none;background:var(--purple);color:#fff;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;box-shadow:0 0 20px var(--purple-glow)}
+.btn-submit:hover{background:var(--purple-light);box-shadow:0 0 32px var(--purple-glow)}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
 
-/* DECK UPLOAD */
-.deck-container{max-width:580px;margin:0 auto;padding:36px 48px 60px;display:none}
-.deck-container.visible{display:block}
-.deck-drop{
-  border:1px dashed var(--border2);border-radius:2px;
-  padding:44px 24px;text-align:center;cursor:pointer;
-  transition:border-color .2s,background .2s;margin-bottom:20px;
-}
-.deck-drop:hover,.deck-drop.dragover{border-color:var(--cyan);background:var(--cyan-dim)}
-.deck-drop-icon{font-size:26px;margin-bottom:12px;color:var(--muted)}
-.deck-drop-title{font-size:13px;font-weight:700;color:var(--h1);margin-bottom:4px;letter-spacing:.03em}
-.deck-drop-sub{font-size:11px;color:var(--muted);font-family:'Space Mono',monospace}
+.deck-area{max-width:520px;margin:0 auto;padding:36px 48px 64px;display:none}
+.deck-area.visible{display:block}
+.deck-drop{border:1.5px dashed var(--border2);border-radius:12px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
+.deck-drop:hover,.deck-drop.dragover{border-color:var(--purple);background:var(--purple-dim)}
+.deck-drop-icon{font-size:26px;margin-bottom:12px;display:block}
+.deck-drop-title{font-size:14px;font-weight:700;color:var(--h1);margin-bottom:4px}
+.deck-drop-sub{font-size:12px;color:var(--muted)}
 .deck-file-input{display:none}
-.deck-selected{display:none;background:var(--surface);border:1px solid var(--border2);border-radius:2px;padding:14px 16px;margin-bottom:16px;align-items:center;gap:12px}
+.deck-selected{display:none;background:var(--surface);border:1px solid var(--border2);border-radius:9px;padding:13px 16px;margin-bottom:14px;align-items:center;gap:12px}
 .deck-selected.show{display:flex}
-.deck-file-icon{font-size:20px}
-.deck-file-name{font-size:12px;color:var(--h1);font-weight:600;flex:1;font-family:'Space Mono',monospace}
-.deck-file-size{font-size:10px;color:var(--muted);font-family:'Space Mono',monospace}
+.deck-file-name{font-size:13px;color:var(--h1);font-weight:600;flex:1}
+.deck-file-size{font-size:11px;color:var(--muted)}
 .deck-remove{background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:2px 6px;transition:color .15s}
 .deck-remove:hover{color:var(--red)}
-.deck-email-wrap{margin-bottom:20px}
+.deck-note{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.6}
+.deck-email-wrap{margin-bottom:18px}
 
-/* SUCCESS */
-.success-state{
-  display:none;text-align:center;
-  padding:56px 32px;
-  background:var(--surface);
-  border:1px solid var(--border2);
-  border-radius:2px;
-  margin:0 48px 48px;
-  position:relative;
-  overflow:hidden;
-}
-.success-state::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0,245,255,0.05), transparent 70%);
-  pointer-events:none;
-}
-.success-icon{
-  width:54px;height:54px;
-  background:rgba(57,255,138,0.08);
-  border:1px solid var(--green);
-  border-radius:2px;
-  display:flex;align-items:center;justify-content:center;
-  margin:0 auto 20px;font-size:20px;color:var(--green);
-  box-shadow:0 0 20px rgba(57,255,138,0.2);
-}
-.success-title{font-size:20px;font-weight:800;color:var(--h1);margin-bottom:8px;letter-spacing:-0.01em;text-transform:uppercase}
-.success-sub{font-size:13px;color:var(--muted);line-height:1.7;font-family:'Space Mono',monospace}
+.success-state{display:none;text-align:center;padding:56px 32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;margin:32px 48px 48px}
+.success-icon{width:52px;height:52px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:20px;color:var(--green)}
+.success-title{font-size:20px;font-weight:800;color:var(--h1);margin-bottom:8px;letter-spacing:-.02em}
+.success-sub{font-size:13px;color:var(--body);line-height:1.7}
 
-/* FOOTER */
-.footer-cta{
-  padding:72px 48px;text-align:center;
-  background:#020205;
-  border-top:1px solid var(--border2);
-  position:relative;overflow:hidden;
-}
-.footer-cta::before{
-  content:'';position:absolute;
-  bottom:-40px;left:50%;transform:translateX(-50%);
-  width:400px;height:200px;
-  background:radial-gradient(ellipse, rgba(0,245,255,0.06), transparent 70%);
-  pointer-events:none;
-}
-.footer-line{width:1px;height:32px;background:linear-gradient(to bottom, var(--cyan), transparent);margin:0 auto 28px}
-.footer-h{
-  font-size:clamp(26px,3.5vw,44px);
-  font-weight:900;
-  color:var(--h1);
-  margin-bottom:12px;
-  line-height:1.1;
-  letter-spacing:-0.02em;
-  text-transform:uppercase;
-}
-.footer-sub{font-size:12px;color:var(--muted);margin-bottom:32px;font-family:'Space Mono',monospace;letter-spacing:.05em}
+.footer-cta{padding:80px 48px;text-align:center;background:var(--surface);border-top:1px solid var(--border);position:relative;overflow:hidden}
+.footer-cta::before{content:'';position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:500px;height:320px;background:radial-gradient(ellipse,rgba(124,58,237,0.07),transparent 70%);pointer-events:none}
+.footer-h{font-size:clamp(32px,4.5vw,56px);font-weight:900;color:var(--h1);margin-bottom:12px;line-height:1.05;letter-spacing:-.03em;position:relative}
+.footer-sub{font-size:14px;color:var(--body);margin-bottom:32px;position:relative}
 
-@media(max-width:640px){
+@media(max-width:768px){
   nav{padding:12px 20px}
-  .hero-wrap{padding:0 24px;min-height:100svh}
-  h1{font-size:38px}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .sec{padding:40px 24px}
-  .form-outer-header{padding:40px 24px 0}
-  .form-container,.deck-container{padding:28px 24px 48px}
-  .mode-selector{grid-template-columns:1fr}
+  .hero-wrap{padding:32px 24px 36px;min-height:calc(100svh - 57px)}
+  .sec{padding:56px 24px}
   .crit-grid,.steps{grid-template-columns:1fr}
-  .success-state{margin:0 24px 32px}
-  .footer-cta{padding:52px 24px}
+  .form-outer-header{padding:52px 24px 0}
+  .mode-selector{grid-template-columns:1fr;max-width:380px}
+  .form-area,.deck-area{padding:28px 24px 48px}
+  .success-state{margin:24px 24px 40px}
+  .footer-cta{padding:56px 24px}
 }
 </style>
 </head>
@@ -503,25 +206,17 @@ h1 em::after{
   </div>
 </nav>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- HERO — everything visible on first load -->
 <div class="hero-wrap">
-<div class="hero-inner">
   <div class="eyebrow">Pre-seed investor intelligence</div>
-  <h1>Know <em data-text="exactly">exactly</em> why investors<br>would reject your startup</h1>
+  <h1>Know <em>exactly</em> why investors<br>would reject your startup</h1>
   <p class="sub">An AI that thinks like a pre-seed VC partner scores your idea and tells you your top rejection risk before you walk into the room.</p>
-  <div class="hero-btns">
-    <a href="#get-scored" class="btn-primary">Get your free score <span class="btn-beta-tag">Beta</span></a>
-  </div>
-  <p class="hero-note">// no payment &nbsp;·&nbsp; 7 minutes &nbsp;·&nbsp; report in 2 minutes</p>
-</div>
-</div>
-
-<!-- STATS -->
-<div class="stats-wrap">
+  <a href="#get-scored" class="btn-hero">Get your free score <span class="btn-beta-tag">Beta</span></a>
+  <p class="hero-note">No payment &nbsp;·&nbsp; 7 minutes &nbsp;·&nbsp; Report in 2 minutes</p>
   <div class="stats">
-    <div class="stat"><div class="stat-n">06</div><div class="stat-l">Investor criteria</div></div>
-    <div class="stat"><div class="stat-n">2m</div><div class="stat-l">Report delivery</div></div>
-    <div class="stat"><div class="stat-n">Free</div><div class="stat-l">During beta</div></div>
+    <div class="stat"><div class="stat-n">6</div><div class="stat-l">investor criteria</div></div>
+    <div class="stat"><div class="stat-n">2 min</div><div class="stat-l">report delivery</div></div>
+    <div class="stat"><div class="stat-n">Free</div><div class="stat-l">during beta</div></div>
   </div>
 </div>
 
@@ -529,29 +224,29 @@ h1 em::after{
 <div class="sec-wrap">
 <section class="sec">
   <div class="sec-eye">What gets scored</div>
-  <div class="sec-title">6 criteria. No weightings shown.</div>
+  <div class="sec-title">6 criteria. No gaming possible.</div>
   <div class="sec-sub">The same lens a VC partner uses in the first 5 minutes of reading your deck.</div>
   <div class="crit-grid">
-    <div class="ci"><div class="ci-num">01 //</div><div class="ci-name">Problem clarity</div><div class="ci-desc">Is the pain real and evidenced?</div></div>
-    <div class="ci"><div class="ci-num">02 //</div><div class="ci-name">Founder-market fit</div><div class="ci-desc">Why is this the right team?</div></div>
-    <div class="ci"><div class="ci-num">03 //</div><div class="ci-name">Scalability</div><div class="ci-desc">10x users without 10x costs?</div></div>
-    <div class="ci"><div class="ci-num">04 //</div><div class="ci-name">Competition awareness</div><div class="ci-desc">Know the landscape, own the gap?</div></div>
-    <div class="ci"><div class="ci-num">05 //</div><div class="ci-name">GTM clarity</div><div class="ci-desc">Name your first 10 customers?</div></div>
-    <div class="ci"><div class="ci-num">06 //</div><div class="ci-name">Traction signal</div><div class="ci-desc">Validation beyond belief?</div></div>
+    <div class="ci"><div class="ci-num">01</div><div class="ci-name">Problem clarity</div><div class="ci-desc">Is the pain real and evidenced?</div></div>
+    <div class="ci"><div class="ci-num">02</div><div class="ci-name">Founder-market fit</div><div class="ci-desc">Why is this the right team?</div></div>
+    <div class="ci"><div class="ci-num">03</div><div class="ci-name">Scalability</div><div class="ci-desc">10x users without 10x costs?</div></div>
+    <div class="ci"><div class="ci-num">04</div><div class="ci-name">Competition awareness</div><div class="ci-desc">Know the landscape, own the gap?</div></div>
+    <div class="ci"><div class="ci-num">05</div><div class="ci-name">GTM clarity</div><div class="ci-desc">Name your first 10 customers?</div></div>
+    <div class="ci"><div class="ci-num">06</div><div class="ci-name">Traction signal</div><div class="ci-desc">Validation beyond belief?</div></div>
   </div>
 </section>
 </div>
 
-<!-- HOW IT WORKS -->
+<!-- PROCESS -->
 <div class="sec-wrap">
 <section class="sec">
   <div class="sec-eye">Process</div>
   <div class="sec-title">Fill. Submit. Read.</div>
-  <div class="sec-sub" style="margin-bottom:22px">Three steps. No calls. No waiting.</div>
+  <div class="sec-sub" style="margin-bottom:28px">Three steps. No calls. No waiting.</div>
   <div class="steps">
-    <div class="step-item"><div class="step-num">01 //</div><div class="step-title">Choose your path</div><div class="step-desc">Fill structured questions or upload your pitch deck.</div></div>
-    <div class="step-item"><div class="step-num">02 //</div><div class="step-title">AI scores your idea</div><div class="step-desc">Claude evaluates like a VC partner — fast and unfiltered.</div></div>
-    <div class="step-item"><div class="step-num">03 //</div><div class="step-title">Report in 2 minutes</div><div class="step-desc">Full breakdown straight to your inbox.</div></div>
+    <div class="step-item"><div class="step-icon">01</div><div class="step-title">Fill the form</div><div class="step-desc">Structured questions or upload your pitch deck. 7 minutes.</div></div>
+    <div class="step-item"><div class="step-icon">02</div><div class="step-title">AI scores your idea</div><div class="step-desc">Claude evaluates like a VC partner — fast and unfiltered.</div></div>
+    <div class="step-item"><div class="step-icon">03</div><div class="step-title">Report in 2 minutes</div><div class="step-desc">Full breakdown straight to your inbox.</div></div>
   </div>
 </section>
 </div>
@@ -561,37 +256,49 @@ h1 em::after{
 <section class="sec">
   <div class="sec-eye">FAQ</div>
   <div class="sec-title">Common questions.</div>
-  <div style="margin-top:22px">
-    <div class="faq-item"><div class="faq-q">Who is this for?</div><div class="faq-a">Pre-seed founders in India preparing to pitch investors or apply to accelerators like YC, Surge, NSRCEL, or T-Hub.</div></div>
-    <div class="faq-item"><div class="faq-q">How is this different from asking a mentor?</div><div class="faq-a">Mentors are encouraging. This is anonymous, structured, and consistent — it tells you what the investor actually thinks, not what a friend thinks.</div></div>
-    <div class="faq-item"><div class="faq-q">Can I upload my pitch deck instead of filling questions?</div><div class="faq-a">Yes. You can either fill the structured form or upload your pitch deck as a PDF. Both paths generate the same investor readiness report.</div></div>
-    <div class="faq-item"><div class="faq-q">Will my idea be kept confidential?</div><div class="faq-a">Yes. Your submission is only visible to the Pre-Validation OS team. We never share or publish founder submissions.</div></div>
+  <div class="faq-list" style="margin-top:28px">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Who is this for?</div>
+      <div class="faq-a">Pre-seed founders in India preparing to pitch investors or apply to accelerators like YC, Surge, NSRCEL, or T-Hub.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How is this different from asking a mentor?</div>
+      <div class="faq-a">Mentors are encouraging. This is anonymous, structured, and consistent — it tells you what the investor actually thinks, not what a friend thinks.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I upload my pitch deck instead of filling questions?</div>
+      <div class="faq-a">Yes. You can either fill the structured form or upload your pitch deck as a PDF. Both paths generate the same investor readiness report.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Will my idea be kept confidential?</div>
+      <div class="faq-a">Yes. Your submission is only visible to the Pre-Validation OS team. We never share or publish founder submissions.</div>
+    </div>
   </div>
 </section>
 </div>
 
-<!-- ═══════════════ FORM ═══════════════ -->
-<section class="form-outer" id="get-scored">
+<!-- FORM SECTION -->
+<section id="get-scored" style="border-bottom:1px solid var(--border)">
   <div class="form-outer-header">
     <div class="sec-eye">Submit your idea</div>
-    <div class="sec-title" style="margin-bottom:6px">Get your investor readiness score.</div>
-    <p style="font-size:13px;color:var(--muted)">Choose how you want to submit — fill structured questions or upload your deck.</p>
-    <div class="mode-selector">
+    <div class="sec-title">Get your investor readiness score.</div>
+    <p style="font-size:14px;color:var(--body);margin-top:8px">Choose how you want to submit.</p>
+    <div class="mode-selector" id="modeSelector">
       <div class="mode-card active" id="modeQuestions" onclick="setMode('questions')">
         <div class="mode-card-icon">📋</div>
         <div class="mode-card-title">Answer questions</div>
-        <div class="mode-card-desc">Structured form · 7 min · Most accurate scoring</div>
+        <div class="mode-card-desc">Structured form · 7 min · Most accurate</div>
       </div>
       <div class="mode-card" id="modeDeck" onclick="setMode('deck')">
         <div class="mode-card-icon">📄</div>
         <div class="mode-card-title">Upload pitch deck</div>
-        <div class="mode-card-desc">Upload a PDF · 2 min · AI reads your deck</div>
+        <div class="mode-card-desc">PDF upload · 2 min · AI reads your deck</div>
       </div>
     </div>
   </div>
 
   <!-- QUESTIONS FORM -->
-  <div class="form-container visible" id="questionsContainer">
+  <div class="form-area" id="questionsArea">
     <div class="progress-wrap">
       <div class="progress-top">
         <span class="progress-label" id="progressLabel">Step 1 of 6</span>
@@ -600,454 +307,229 @@ h1 em::after{
       <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:16%"></div></div>
     </div>
 
-    <!-- STEP 1 -->
     <div class="step-card active" id="step1">
-      <div class="step-header">
-        <div class="step-section-eye">01 / 06</div>
-        <div class="step-section-title">Basic info</div>
-      </div>
-      <div class="fg">
-        <label class="fl">Your email address <span>*</span></label>
-        <input type="email" class="fi" id="email" placeholder="you@example.com">
-      </div>
-      <div class="fg">
-        <label class="fl">Describe your startup idea in 2–3 sentences <span>*</span></label>
-        <textarea class="fta" id="idea" placeholder="What does it do, for whom, and how does it work?"></textarea>
-      </div>
-      <div class="step-nav">
-        <div></div>
-        <button class="btn-next" onclick="nextStep(1)">Next →</button>
-      </div>
+      <div class="step-header"><div class="step-eye">01 / 06</div><div class="step-title-form">Basic info</div></div>
+      <div class="fg"><label class="fl">Your email address <span>*</span></label><input type="email" class="fi" id="email" placeholder="you@example.com"></div>
+      <div class="fg"><label class="fl">Describe your startup idea in 2–3 sentences <span>*</span></label><textarea class="fta" id="idea" placeholder="What does it do, for whom, and how does it work?"></textarea></div>
+      <div class="step-nav"><div></div><button class="btn-next" onclick="nextStep(1)">Next →</button></div>
     </div>
 
-    <!-- STEP 2 -->
     <div class="step-card" id="step2">
-      <div class="step-header">
-        <div class="step-section-eye">02 / 06</div>
-        <div class="step-section-title">Problem clarity</div>
+      <div class="step-header"><div class="step-eye">02 / 06</div><div class="step-title-form">Problem clarity</div></div>
+      <div class="fg"><label class="fl">Describe the problem in one sentence <span>*</span></label><input type="text" class="fi" id="problem" placeholder="The specific pain your product solves"></div>
+      <div class="fg"><label class="fl">Strongest evidence this problem is real <span>*</span></label>
+        <select class="fsel" id="problemEvidence"><option value="" disabled selected>Select one</option><option>Personal experience only</option><option>Talked to friends or family</option><option>Done formal interviews with strangers (5 or more)</option><option>Found published research or data</option><option>Have paying customers with this problem</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">Describe the problem in one sentence <span>*</span></label>
-        <input type="text" class="fi" id="problem" placeholder="The specific pain your product solves">
-      </div>
-      <div class="fg">
-        <label class="fl">Strongest evidence this problem is real <span>*</span></label>
-        <select class="fsel" id="problemEvidence">
-          <option value="" disabled selected>Select one</option>
-          <option>Personal experience only</option>
-          <option>Talked to friends or family</option>
-          <option>Done formal interviews with strangers (5 or more)</option>
-          <option>Found published research or data</option>
-          <option>Have paying customers with this problem</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">People outside your network spoken to <span>*</span></label>
-        <input type="number" class="fi" id="interviews" placeholder="Enter 0 if none" min="0">
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(2)">← Back</button>
-        <button class="btn-next" onclick="nextStep(2)">Next →</button>
-      </div>
+      <div class="fg"><label class="fl">People outside your network you have spoken to <span>*</span></label><input type="number" class="fi" id="interviews" placeholder="Enter 0 if none" min="0"></div>
+      <div class="step-nav"><button class="btn-back" onclick="prevStep(2)">← Back</button><button class="btn-next" onclick="nextStep(2)">Next →</button></div>
     </div>
 
-    <!-- STEP 3 -->
     <div class="step-card" id="step3">
-      <div class="step-header">
-        <div class="step-section-eye">03 / 06</div>
-        <div class="step-section-title">Founder-market fit</div>
+      <div class="step-header"><div class="step-eye">03 / 06</div><div class="step-title-form">Founder-market fit</div></div>
+      <div class="fg"><label class="fl">Years of direct work experience in this industry <span>*</span></label>
+        <select class="fsel" id="experience"><option value="" disabled selected>Select one</option><option>0 years</option><option>1 to 2 years</option><option>3 to 5 years</option><option>5 to 10 years</option><option>10 or more years</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">Years of direct work experience in this industry <span>*</span></label>
-        <select class="fsel" id="experience">
-          <option value="" disabled selected>Select one</option>
-          <option>0 years</option>
-          <option>1 to 2 years</option>
-          <option>3 to 5 years</option>
-          <option>5 to 10 years</option>
-          <option>10 or more years</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">Have you personally experienced this problem? <span>*</span></label>
-        <div class="yn-row">
-          <button type="button" class="yn-btn" onclick="setYN(this,'personalExp','Yes')">Yes</button>
-          <button type="button" class="yn-btn" onclick="setYN(this,'personalExp','No')">No</button>
-        </div>
+      <div class="fg"><label class="fl">Have you personally experienced this problem? <span>*</span></label>
+        <div class="yn-row"><button type="button" class="yn-btn" onclick="setYN(this,'personalExp','Yes')">Yes</button><button type="button" class="yn-btn" onclick="setYN(this,'personalExp','No')">No</button></div>
         <input type="hidden" id="personalExp">
       </div>
-      <div class="fg">
-        <label class="fl">Co-founder or advisor with domain expertise? <span>*</span></label>
-        <div class="yn-row">
-          <button type="button" class="yn-btn" onclick="setYN(this,'cofounder','Yes')">Yes</button>
-          <button type="button" class="yn-btn" onclick="setYN(this,'cofounder','No')">No</button>
-        </div>
+      <div class="fg"><label class="fl">Co-founder or advisor with domain expertise? <span>*</span></label>
+        <div class="yn-row"><button type="button" class="yn-btn" onclick="setYN(this,'cofounder','Yes')">Yes</button><button type="button" class="yn-btn" onclick="setYN(this,'cofounder','No')">No</button></div>
         <input type="hidden" id="cofounder">
       </div>
-      <div class="fg">
-        <label class="fl">Most relevant thing about your background <span>*</span></label>
-        <input type="text" class="fi" id="background" placeholder="One sentence">
-      </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(3)">← Back</button>
-        <button class="btn-next" onclick="nextStep(3)">Next →</button>
-      </div>
+      <div class="fg"><label class="fl">Most relevant thing about your background <span>*</span></label><input type="text" class="fi" id="background" placeholder="One sentence"></div>
+      <div class="step-nav"><button class="btn-back" onclick="prevStep(3)">← Back</button><button class="btn-next" onclick="nextStep(3)">Next →</button></div>
     </div>
 
-    <!-- STEP 4 -->
     <div class="step-card" id="step4">
-      <div class="step-header">
-        <div class="step-section-eye">04 / 06</div>
-        <div class="step-section-title">Scalability & competition</div>
+      <div class="step-header"><div class="step-eye">04 / 06</div><div class="step-title-form">Scalability & competition</div></div>
+      <div class="fg"><label class="fl">How do you plan to charge customers? <span>*</span></label>
+        <select class="fsel" id="businessModel"><option value="" disabled selected>Select one</option><option>Monthly subscription</option><option>Annual subscription</option><option>Pay per use</option><option>One-time fee</option><option>Not decided yet</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">How do you plan to charge customers? <span>*</span></label>
-        <select class="fsel" id="businessModel">
-          <option value="" disabled selected>Select one</option>
-          <option>Monthly subscription</option>
-          <option>Annual subscription</option>
-          <option>Pay per use</option>
-          <option>One-time fee</option>
-          <option>Not decided yet</option>
-        </select>
+      <div class="fg"><label class="fl">Cost to serve one additional customer once built <span>*</span></label>
+        <select class="fsel" id="costPerCustomer"><option value="" disabled selected>Select one</option><option>Near zero — pure software</option><option>Low — under Rs 500 per customer</option><option>Medium — Rs 500 to Rs 5,000</option><option>High — over Rs 5,000</option><option>Not sure yet</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">Cost to serve one additional customer once built <span>*</span></label>
-        <select class="fsel" id="costPerCustomer">
-          <option value="" disabled selected>Select one</option>
-          <option>Near zero — pure software</option>
-          <option>Low — under Rs 500 per customer</option>
-          <option>Medium — Rs 500 to Rs 5,000</option>
-          <option>High — over Rs 5,000</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">Can this work outside India without major rebuilding? <span>*</span></label>
-        <div class="yn-row">
-          <button type="button" class="yn-btn" onclick="setYN(this,'outsideIndia','Yes')">Yes</button>
-          <button type="button" class="yn-btn" onclick="setYN(this,'outsideIndia','No')">No</button>
-        </div>
+      <div class="fg"><label class="fl">Can this work outside India without major rebuilding? <span>*</span></label>
+        <div class="yn-row"><button type="button" class="yn-btn" onclick="setYN(this,'outsideIndia','Yes')">Yes</button><button type="button" class="yn-btn" onclick="setYN(this,'outsideIndia','No')">No</button></div>
         <input type="hidden" id="outsideIndia">
       </div>
-      <div class="fg">
-        <label class="fl">Name your top 2–3 competitors or alternatives <span>*</span></label>
-        <input type="text" class="fi" id="competitors" placeholder="e.g. Competitor A, Competitor B">
-      </div>
-      <div class="fg">
-        <label class="fl">Why would a customer choose you over them? <span>*</span></label>
-        <input type="text" class="fi" id="differentiation" placeholder="One sentence">
-      </div>
-      <div class="fg">
-        <label class="fl">Could a well-funded competitor copy your advantage in 12 months? <span>*</span></label>
-        <div class="yn-row">
-          <button type="button" class="yn-btn" onclick="setYN(this,'competitorCopy','Yes')">Yes</button>
-          <button type="button" class="yn-btn" onclick="setYN(this,'competitorCopy','No')">No</button>
-        </div>
+      <div class="fg"><label class="fl">Name your top 2–3 competitors or alternatives <span>*</span></label><input type="text" class="fi" id="competitors" placeholder="e.g. Competitor A, Competitor B"></div>
+      <div class="fg"><label class="fl">Why would a customer choose you over them? <span>*</span></label><input type="text" class="fi" id="differentiation" placeholder="One sentence"></div>
+      <div class="fg"><label class="fl">Could a well-funded competitor copy your advantage in 12 months? <span>*</span></label>
+        <div class="yn-row"><button type="button" class="yn-btn" onclick="setYN(this,'competitorCopy','Yes')">Yes</button><button type="button" class="yn-btn" onclick="setYN(this,'competitorCopy','No')">No</button></div>
         <input type="hidden" id="competitorCopy">
       </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(4)">← Back</button>
-        <button class="btn-next" onclick="nextStep(4)">Next →</button>
-      </div>
+      <div class="step-nav"><button class="btn-back" onclick="prevStep(4)">← Back</button><button class="btn-next" onclick="nextStep(4)">Next →</button></div>
     </div>
 
-    <!-- STEP 5 -->
     <div class="step-card" id="step5">
-      <div class="step-header">
-        <div class="step-section-eye">05 / 06</div>
-        <div class="step-section-title">GTM clarity</div>
+      <div class="step-header"><div class="step-eye">05 / 06</div><div class="step-title-form">GTM clarity</div></div>
+      <div class="fg"><label class="fl">First specific person, company, or community you'd approach <span>*</span></label><input type="text" class="fi" id="firstCustomer" placeholder="Be specific — not 'startups' or 'SMEs'"></div>
+      <div class="fg"><label class="fl">How would you reach your first 10 customers? <span>*</span></label>
+        <select class="fsel" id="gtmChannel"><option value="" disabled selected>Select one</option><option>Direct outreach — I know them personally</option><option>Online communities I am already active in</option><option>Cold outreach via LinkedIn or email</option><option>Through a partner or referral</option><option>Paid ads</option><option>Not sure yet</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">First specific person, company, or community you'd approach <span>*</span></label>
-        <input type="text" class="fi" id="firstCustomer" placeholder="Be specific — not 'startups' or 'SMEs'">
-      </div>
-      <div class="fg">
-        <label class="fl">How would you reach your first 10 customers? <span>*</span></label>
-        <select class="fsel" id="gtmChannel">
-          <option value="" disabled selected>Select one</option>
-          <option>Direct outreach — I know them personally</option>
-          <option>Online communities I am already active in</option>
-          <option>Cold outreach via LinkedIn or email</option>
-          <option>Through a partner or referral</option>
-          <option>Paid ads</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">Do you have at least one warm intro to a potential customer right now? <span>*</span></label>
-        <div class="yn-row">
-          <button type="button" class="yn-btn" onclick="setYN(this,'warmIntro','Yes')">Yes</button>
-          <button type="button" class="yn-btn" onclick="setYN(this,'warmIntro','No')">No</button>
-        </div>
+      <div class="fg"><label class="fl">At least one warm intro to a potential customer right now? <span>*</span></label>
+        <div class="yn-row"><button type="button" class="yn-btn" onclick="setYN(this,'warmIntro','Yes')">Yes</button><button type="button" class="yn-btn" onclick="setYN(this,'warmIntro','No')">No</button></div>
         <input type="hidden" id="warmIntro">
       </div>
-      <div class="step-nav">
-        <button class="btn-back" onclick="prevStep(5)">← Back</button>
-        <button class="btn-next" onclick="nextStep(5)">Next →</button>
-      </div>
+      <div class="step-nav"><button class="btn-back" onclick="prevStep(5)">← Back</button><button class="btn-next" onclick="nextStep(5)">Next →</button></div>
     </div>
 
-    <!-- STEP 6 -->
     <div class="step-card" id="step6">
-      <div class="step-header">
-        <div class="step-section-eye">06 / 06</div>
-        <div class="step-section-title">Traction signal</div>
+      <div class="step-header"><div class="step-eye">06 / 06</div><div class="step-title-form">Traction signal</div></div>
+      <div class="fg"><label class="fl">Highest level of validation so far <span>*</span></label>
+        <select class="fsel" id="validationLevel"><option value="" disabled selected>Select one</option><option>No validation yet</option><option>Had informal conversations</option><option>Done formal customer interviews with 5 or more strangers</option><option>Have people on a waitlist</option><option>Have a signed letter of intent</option><option>Have at least one paying customer</option></select>
       </div>
-      <div class="fg">
-        <label class="fl">Highest level of validation so far <span>*</span></label>
-        <select class="fsel" id="validationLevel">
-          <option value="" disabled selected>Select one</option>
-          <option>No validation yet</option>
-          <option>Had informal conversations</option>
-          <option>Done formal customer interviews with 5 or more strangers</option>
-          <option>Have people on a waitlist</option>
-          <option>Have a signed letter of intent</option>
-          <option>Have at least one paying customer</option>
-        </select>
-      </div>
-      <div class="fg">
-        <label class="fl">Total customer interviews done <span>*</span></label>
-        <input type="number" class="fi" id="totalInterviews" placeholder="Enter 0 if none" min="0">
-      </div>
-      <div class="fg">
-        <label class="fl">Has anyone offered to pay you for this, even informally? <span>*</span></label>
-        <div class="yn-row">
-          <button type="button" class="yn-btn" onclick="setYN(this,'offeredToPay','Yes')">Yes</button>
-          <button type="button" class="yn-btn" onclick="setYN(this,'offeredToPay','No')">No</button>
-        </div>
+      <div class="fg"><label class="fl">Total customer interviews done <span>*</span></label><input type="number" class="fi" id="totalInterviews" placeholder="Enter 0 if none" min="0"></div>
+      <div class="fg"><label class="fl">Has anyone offered to pay you for this, even informally? <span>*</span></label>
+        <div class="yn-row"><button type="button" class="yn-btn" onclick="setYN(this,'offeredToPay','Yes')">Yes</button><button type="button" class="yn-btn" onclick="setYN(this,'offeredToPay','No')">No</button></div>
         <input type="hidden" id="offeredToPay">
       </div>
       <div class="step-nav">
         <button class="btn-back" onclick="prevStep(6)">← Back</button>
-        <button class="btn-submit" id="submitBtn" onclick="submitForm()">
-          <span id="submitText">Get my investor score →</span>
-        </button>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()"><span id="submitText">Get my investor score →</span></button>
       </div>
     </div>
   </div>
 
   <!-- DECK UPLOAD -->
-  <div class="deck-container" id="deckContainer">
+  <div class="deck-area" id="deckArea">
     <div class="deck-email-wrap">
       <label class="fl">Your email address <span>*</span></label>
       <input type="email" class="fi" id="deckEmail" placeholder="you@example.com">
     </div>
     <div class="deck-drop" id="deckDrop" onclick="document.getElementById('deckFile').click()">
-      <div class="deck-drop-icon">📄</div>
+      <span class="deck-drop-icon">📄</span>
       <div class="deck-drop-title">Drop your pitch deck here</div>
       <div class="deck-drop-sub">PDF only · Max 10MB · Click or drag to upload</div>
       <input type="file" class="deck-file-input" id="deckFile" accept=".pdf" onchange="handleFileSelect(this)">
     </div>
     <div class="deck-selected" id="deckSelected">
-      <div class="deck-file-icon">📄</div>
       <div class="deck-file-name" id="deckFileName">filename.pdf</div>
       <div class="deck-file-size" id="deckFileSize">2.4 MB</div>
       <button class="deck-remove" onclick="removeFile()">✕</button>
     </div>
-    <p style="font-size:12px;color:var(--muted);margin-bottom:22px;line-height:1.6;font-family:'Space Mono',monospace">// AI reads your deck and scores it across the same 6 investor criteria. Results may be slightly less precise than the structured questions.</p>
-    <button class="btn-submit" id="deckSubmitBtn" onclick="submitDeck()">
-      <span id="deckSubmitText">Analyse my pitch deck →</span>
-    </button>
+    <p class="deck-note">The AI reads your deck and scores it across the same 6 investor criteria. Results may be slightly less precise than the structured questions.</p>
+    <button class="btn-submit" id="deckSubmitBtn" onclick="submitDeck()"><span id="deckSubmitText">Analyse my pitch deck →</span></button>
   </div>
 
   <!-- SUCCESS -->
   <div class="success-state" id="successState">
     <div class="success-icon">✓</div>
     <div class="success-title">Submission received</div>
-    <p class="success-sub">// Your investor readiness report is being generated.<br>Check your inbox in the next 2 minutes.<br><br>Check spam if you do not see it.</p>
+    <p class="success-sub">Your investor readiness report is being generated.<br>Check your inbox in the next 2 minutes.<br><br>Check spam if you do not see it.</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <section class="footer-cta">
-  <div class="footer-line"></div>
   <div class="footer-h">Know where you stand<br>before you pitch.</div>
-  <div class="footer-sub">// free during beta &nbsp;·&nbsp; takes 7 minutes</div>
-  <a href="#get-scored" class="btn-primary">Get your free score <span class="btn-beta-tag">Beta</span></a>
+  <div class="footer-sub">Free during beta · Takes 7 minutes</div>
+  <a href="#get-scored" class="btn-hero">Get your free score <span class="btn-beta-tag">Beta</span></a>
 </section>
 
 <script>
-const WEBHOOK = 'https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
-const DECK_WEBHOOK = 'https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
+const WEBHOOK='https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
+var currentStep=1,totalSteps=6,currentMode='none';
+var stepLabels=['Basic Info','Problem Clarity','Founder-Market Fit','Scalability & Competition','GTM Clarity','Traction Signal'];
 
-var currentStep = 1;
-var totalSteps = 6;
-var currentMode = 'questions';
-var stepLabels = ['Basic Info','Problem Clarity','Founder-Market Fit','Scalability & Competition','GTM Clarity','Traction Signal'];
-
-function setMode(mode) {
-  currentMode = mode;
-  document.getElementById('modeQuestions').classList.toggle('active', mode === 'questions');
-  document.getElementById('modeDeck').classList.toggle('active', mode === 'deck');
-  document.getElementById('questionsContainer').classList.toggle('visible', mode === 'questions');
-  document.getElementById('deckContainer').classList.toggle('visible', mode === 'deck');
-  document.getElementById('successState').style.display = 'none';
+function toggleFaq(el){
+  var isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(f){f.classList.remove('open')});
+  if(!isOpen)el.classList.add('open');
 }
 
-function setYN(btn, fieldId, value) {
-  btn.parentElement.querySelectorAll('.yn-btn').forEach(function(b) {
-    b.classList.remove('active-yes','active-no');
-  });
-  btn.classList.add(value === 'Yes' ? 'active-yes' : 'active-no');
-  document.getElementById(fieldId).value = value;
+function setMode(mode){
+  if(currentMode===mode)return;
+  currentMode=mode;
+  document.getElementById('modeQuestions').classList.toggle('active',mode==='questions');
+  document.getElementById('modeDeck').classList.toggle('active',mode==='deck');
+  var qArea=document.getElementById('questionsArea');
+  var dArea=document.getElementById('deckArea');
+  document.getElementById('successState').style.display='none';
+  if(mode==='questions'){dArea.classList.remove('visible');qArea.classList.add('visible');}
+  else{qArea.classList.remove('visible');dArea.classList.add('visible');}
 }
 
-function validateStep(step) {
-  if (step === 1) {
-    var email = document.getElementById('email').value.trim();
-    var idea = document.getElementById('idea').value.trim();
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return false; }
-    if (!idea) { alert('Please describe your startup idea.'); return false; }
-  }
-  if (step === 2) {
-    if (!document.getElementById('problem').value.trim()) { alert('Please describe the problem.'); return false; }
-    if (!document.getElementById('problemEvidence').value) { alert('Please select your strongest evidence.'); return false; }
-    if (document.getElementById('interviews').value === '') { alert('Please enter the number of interviews (0 if none).'); return false; }
-  }
-  if (step === 3) {
-    if (!document.getElementById('experience').value) { alert('Please select your years of experience.'); return false; }
-    if (!document.getElementById('personalExp').value) { alert('Please answer the personal experience question.'); return false; }
-    if (!document.getElementById('cofounder').value) { alert('Please answer the co-founder question.'); return false; }
-    if (!document.getElementById('background').value.trim()) { alert('Please describe your relevant background.'); return false; }
-  }
-  if (step === 4) {
-    if (!document.getElementById('businessModel').value) { alert('Please select your business model.'); return false; }
-    if (!document.getElementById('costPerCustomer').value) { alert('Please select your cost per customer.'); return false; }
-    if (!document.getElementById('outsideIndia').value) { alert('Please answer the India question.'); return false; }
-    if (!document.getElementById('competitors').value.trim()) { alert('Please name your competitors.'); return false; }
-    if (!document.getElementById('differentiation').value.trim()) { alert('Please describe your differentiation.'); return false; }
-    if (!document.getElementById('competitorCopy').value) { alert('Please answer the competitor copy question.'); return false; }
-  }
-  if (step === 5) {
-    if (!document.getElementById('firstCustomer').value.trim()) { alert('Please name your first customer target.'); return false; }
-    if (!document.getElementById('gtmChannel').value) { alert('Please select your GTM channel.'); return false; }
-    if (!document.getElementById('warmIntro').value) { alert('Please answer the warm intro question.'); return false; }
-  }
-  if (step === 6) {
-    if (!document.getElementById('validationLevel').value) { alert('Please select your validation level.'); return false; }
-    if (document.getElementById('totalInterviews').value === '') { alert('Please enter total interviews.'); return false; }
-    if (!document.getElementById('offeredToPay').value) { alert('Please answer the offered to pay question.'); return false; }
-  }
+function setYN(btn,fieldId,value){
+  btn.parentElement.querySelectorAll('.yn-btn').forEach(function(b){b.classList.remove('active-yes','active-no')});
+  btn.classList.add(value==='Yes'?'active-yes':'active-no');
+  document.getElementById(fieldId).value=value;
+}
+
+function validateStep(step){
+  if(step===1){var e=document.getElementById('email').value.trim(),i=document.getElementById('idea').value.trim();if(!e||!e.includes('@')){alert('Please enter a valid email address.');return false;}if(!i){alert('Please describe your startup idea.');return false;}}
+  if(step===2){if(!document.getElementById('problem').value.trim()){alert('Please describe the problem.');return false;}if(!document.getElementById('problemEvidence').value){alert('Please select your strongest evidence.');return false;}if(document.getElementById('interviews').value===''){alert('Please enter the number of interviews (0 if none).');return false;}}
+  if(step===3){if(!document.getElementById('experience').value){alert('Please select your years of experience.');return false;}if(!document.getElementById('personalExp').value){alert('Please answer the personal experience question.');return false;}if(!document.getElementById('cofounder').value){alert('Please answer the co-founder question.');return false;}if(!document.getElementById('background').value.trim()){alert('Please describe your relevant background.');return false;}}
+  if(step===4){if(!document.getElementById('businessModel').value){alert('Please select your business model.');return false;}if(!document.getElementById('costPerCustomer').value){alert('Please select your cost per customer.');return false;}if(!document.getElementById('outsideIndia').value){alert('Please answer the India question.');return false;}if(!document.getElementById('competitors').value.trim()){alert('Please name your competitors.');return false;}if(!document.getElementById('differentiation').value.trim()){alert('Please describe your differentiation.');return false;}if(!document.getElementById('competitorCopy').value){alert('Please answer the competitor copy question.');return false;}}
+  if(step===5){if(!document.getElementById('firstCustomer').value.trim()){alert('Please name your first customer target.');return false;}if(!document.getElementById('gtmChannel').value){alert('Please select your GTM channel.');return false;}if(!document.getElementById('warmIntro').value){alert('Please answer the warm intro question.');return false;}}
+  if(step===6){if(!document.getElementById('validationLevel').value){alert('Please select your validation level.');return false;}if(document.getElementById('totalInterviews').value===''){alert('Please enter total interviews.');return false;}if(!document.getElementById('offeredToPay').value){alert('Please answer the offered to pay question.');return false;}}
   return true;
 }
 
-function nextStep(from) {
-  if (!validateStep(from)) return;
-  goToStep(from + 1, 'forward');
-}
+function nextStep(from){if(!validateStep(from))return;goToStep(from+1,'forward');}
+function prevStep(from){goToStep(from-1,'back');}
 
-function prevStep(from) {
-  goToStep(from - 1, 'back');
-}
-
-function goToStep(to, direction) {
-  var fromCard = document.getElementById('step' + currentStep);
-  var toCard = document.getElementById('step' + to);
-  fromCard.classList.remove('active');
+function goToStep(to,direction){
+  document.getElementById('step'+currentStep).classList.remove('active');
+  var toCard=document.getElementById('step'+to);
   toCard.classList.add('active');
-  if (direction === 'back') toCard.classList.add('slide-back');
-  else toCard.classList.remove('slide-back');
-  currentStep = to;
-  var pct = Math.round((to / totalSteps) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = 'Step ' + to + ' of ' + totalSteps;
-  document.getElementById('progressCount').textContent = stepLabels[to - 1];
-  document.querySelector('.form-container').scrollIntoView({behavior:'smooth', block:'start'});
+  if(direction==='back')toCard.classList.add('slide-back');else toCard.classList.remove('slide-back');
+  currentStep=to;
+  var pct=Math.round((to/totalSteps)*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent='Step '+to+' of '+totalSteps;
+  document.getElementById('progressCount').textContent=stepLabels[to-1];
 }
 
-function submitForm() {
-  if (!validateStep(6)) return;
-  var btn = document.getElementById('submitBtn');
-  var txt = document.getElementById('submitText');
-  btn.disabled = true;
-  txt.textContent = 'Sending...';
-  var data = {
-    tier:'Full Report (Beta)',
-    email:document.getElementById('email').value.trim(),
-    idea:document.getElementById('idea').value.trim(),
-    problem:document.getElementById('problem').value.trim(),
-    problem_evidence:document.getElementById('problemEvidence').value,
-    interviews_outside_network:document.getElementById('interviews').value,
-    industry_experience:document.getElementById('experience').value,
-    personally_experienced:document.getElementById('personalExp').value,
-    domain_expert_cofounder:document.getElementById('cofounder').value,
-    relevant_background:document.getElementById('background').value.trim(),
-    business_model:document.getElementById('businessModel').value,
-    cost_per_customer:document.getElementById('costPerCustomer').value,
-    works_outside_india:document.getElementById('outsideIndia').value,
-    competitors:document.getElementById('competitors').value.trim(),
-    differentiation:document.getElementById('differentiation').value.trim(),
-    competitor_can_copy:document.getElementById('competitorCopy').value,
-    first_customer_target:document.getElementById('firstCustomer').value.trim(),
-    gtm_channel:document.getElementById('gtmChannel').value,
-    warm_intro:document.getElementById('warmIntro').value,
-    validation_level:document.getElementById('validationLevel').value,
-    total_interviews:document.getElementById('totalInterviews').value,
-    offered_to_pay:document.getElementById('offeredToPay').value
-  };
+function submitForm(){
+  if(!validateStep(6))return;
+  var btn=document.getElementById('submitBtn'),txt=document.getElementById('submitText');
+  btn.disabled=true;txt.textContent='Sending...';
+  var data={tier:'Full Report (Beta)',email:document.getElementById('email').value.trim(),idea:document.getElementById('idea').value.trim(),problem:document.getElementById('problem').value.trim(),problem_evidence:document.getElementById('problemEvidence').value,interviews_outside_network:document.getElementById('interviews').value,industry_experience:document.getElementById('experience').value,personally_experienced:document.getElementById('personalExp').value,domain_expert_cofounder:document.getElementById('cofounder').value,relevant_background:document.getElementById('background').value.trim(),business_model:document.getElementById('businessModel').value,cost_per_customer:document.getElementById('costPerCustomer').value,works_outside_india:document.getElementById('outsideIndia').value,competitors:document.getElementById('competitors').value.trim(),differentiation:document.getElementById('differentiation').value.trim(),competitor_can_copy:document.getElementById('competitorCopy').value,first_customer_target:document.getElementById('firstCustomer').value.trim(),gtm_channel:document.getElementById('gtmChannel').value,warm_intro:document.getElementById('warmIntro').value,validation_level:document.getElementById('validationLevel').value,total_interviews:document.getElementById('totalInterviews').value,offered_to_pay:document.getElementById('offeredToPay').value};
   fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-  .then(function(){
-    document.getElementById('questionsContainer').style.display='none';
-    document.getElementById('successState').style.display='block';
-    document.getElementById('successState').scrollIntoView({behavior:'smooth'});
-  })
-  .catch(function(){
-    btn.disabled=false;txt.textContent='Get my investor score →';
-    alert('Something went wrong. Please try again.');
-  });
+  .then(function(){document.getElementById('questionsArea').style.display='none';document.getElementById('modeSelector').style.display='none';document.getElementById('successState').style.display='block';document.getElementById('successState').scrollIntoView({behavior:'smooth'});})
+  .catch(function(){btn.disabled=false;txt.textContent='Get my investor score →';alert('Something went wrong. Please try again.');});
 }
 
-function handleFileSelect(input) {
-  var file = input.files[0];
-  if (!file) return;
-  if (file.size > 10*1024*1024) { alert('File must be under 10MB.'); input.value=''; return; }
-  document.getElementById('deckFileName').textContent = file.name;
-  document.getElementById('deckFileSize').textContent = (file.size/(1024*1024)).toFixed(1)+' MB';
+function handleFileSelect(input){
+  var file=input.files[0];
+  if(!file)return;
+  if(file.size>10*1024*1024){alert('File must be under 10MB.');input.value='';return;}
+  document.getElementById('deckFileName').textContent=file.name;
+  document.getElementById('deckFileSize').textContent=(file.size/(1024*1024)).toFixed(1)+' MB';
   document.getElementById('deckSelected').classList.add('show');
   document.getElementById('deckDrop').style.display='none';
 }
 
-function removeFile() {
+function removeFile(){
   document.getElementById('deckFile').value='';
   document.getElementById('deckSelected').classList.remove('show');
   document.getElementById('deckDrop').style.display='block';
 }
 
-var drop = document.getElementById('deckDrop');
+var drop=document.getElementById('deckDrop');
 drop.addEventListener('dragover',function(e){e.preventDefault();this.classList.add('dragover')});
 drop.addEventListener('dragleave',function(){this.classList.remove('dragover')});
 drop.addEventListener('drop',function(e){
   e.preventDefault();this.classList.remove('dragover');
   var file=e.dataTransfer.files[0];
-  if(file && file.type==='application/pdf'){
-    var input=document.getElementById('deckFile');
-    var dt=new DataTransfer();dt.items.add(file);input.files=dt.files;
-    handleFileSelect(input);
-  } else { alert('Please upload a PDF file.'); }
+  if(file&&file.type==='application/pdf'){var input=document.getElementById('deckFile');var dt=new DataTransfer();dt.items.add(file);input.files=dt.files;handleFileSelect(input);}
+  else alert('Please upload a PDF file.');
 });
 
-function submitDeck() {
-  var email=document.getElementById('deckEmail').value.trim();
-  var file=document.getElementById('deckFile').files[0];
+function submitDeck(){
+  var email=document.getElementById('deckEmail').value.trim(),file=document.getElementById('deckFile').files[0];
   if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
   if(!file){alert('Please upload your pitch deck PDF.');return;}
-  var btn=document.getElementById('deckSubmitBtn');
-  var txt=document.getElementById('deckSubmitText');
+  var btn=document.getElementById('deckSubmitBtn'),txt=document.getElementById('deckSubmitText');
   btn.disabled=true;txt.textContent='Uploading...';
   var reader=new FileReader();
   reader.onload=function(e){
     var base64=e.target.result.split(',')[1];
-    fetch(DECK_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier:'Pitch Deck (Beta)',email:email,deck_filename:file.name,deck_base64:base64})})
-    .then(function(){
-      document.getElementById('deckContainer').style.display='none';
-      document.getElementById('successState').style.display='block';
-      document.getElementById('successState').scrollIntoView({behavior:'smooth'});
-    })
-    .catch(function(){
-      btn.disabled=false;txt.textContent='Analyse my pitch deck →';
-      alert('Something went wrong. Please try again.');
-    });
+    fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier:'Pitch Deck (Beta)',email:email,deck_filename:file.name,deck_base64:base64})})
+    .then(function(){document.getElementById('deckArea').style.display='none';document.getElementById('modeSelector').style.display='none';document.getElementById('successState').style.display='block';document.getElementById('successState').scrollIntoView({behavior:'smooth'});})
+    .catch(function(){btn.disabled=false;txt.textContent='Analyse my pitch deck →';alert('Something went wrong. Please try again.');});
   };
   reader.readAsDataURL(file);
 }
