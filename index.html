@@ -146,31 +146,36 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .loading-sub{font-size:13px;color:var(--muted);line-height:1.6}
 
 /* RESULTS */
-.results-area{display:none;max-width:600px;margin:0 auto;padding:32px 48px 64px}
+.results-area{display:none;width:100%;max-width:1100px;margin:0 auto;padding:40px 48px 64px}
 .results-area.visible{display:block}
 
-.result-hero{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;display:flex;align-items:center;gap:24px}
-.score-number{font-size:56px;font-weight:300;color:var(--h1);line-height:1;flex-shrink:0;letter-spacing:-.02em}
-.score-denom{font-size:22px;color:var(--muted);font-weight:400}
-.score-right{}
-.grade-badge{display:inline-block;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:10px;letter-spacing:.04em}
+/* Top row: score card left, signals right */
+.results-top-row{display:grid;grid-template-columns:220px 1fr;gap:16px;margin-bottom:0;align-items:start}
+.result-hero{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;height:100%}
+.score-number{font-size:56px;font-weight:300;color:var(--h1);line-height:1;letter-spacing:-.02em}
+.score-denom{font-size:20px;color:var(--muted);font-weight:400}
+.grade-badge{display:inline-block;font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.04em}
 .grade-strong{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
 .grade-promising{background:rgba(124,58,237,0.1);color:var(--purple-light);border:1px solid rgba(124,58,237,0.25)}
 .grade-weak{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
 .grade-notready{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
-.score-label{font-size:13px;color:var(--muted);line-height:1.5}
+.score-label{font-size:12px;color:var(--muted);line-height:1.5}
 
-.results-section-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:12px}
+/* Signals column */
+.signals-col{display:grid;gap:10px}
 
-.crit-cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
-.crit-result-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
-.crit-result-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
-.crit-result-name{font-size:12px;font-weight:700;color:var(--h1)}
+.results-section-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:10px}
+
+/* Criteria 3-col grid */
+.crit-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.crit-result-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 16px}
+.crit-result-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.crit-result-name{font-size:12px;font-weight:600;color:var(--h1)}
 .crit-result-weight{font-size:10px;color:var(--muted);margin-left:4px}
-.crit-result-score{font-size:18px;font-weight:700}
-.crit-bar-track{height:3px;background:var(--border2);border-radius:2px;margin-bottom:12px;overflow:hidden}
+.crit-result-score{font-size:17px;font-weight:600}
+.crit-bar-track{height:2px;background:var(--border2);border-radius:2px;margin-bottom:10px;overflow:hidden}
 .crit-bar-fill{height:100%;border-radius:2px;transition:width .8s ease}
-.crit-reasoning{font-size:12px;color:var(--muted);line-height:1.65}
+.crit-reasoning{font-size:11px;color:var(--muted);line-height:1.6}
 
 /* Score colours */
 .score-high{color:#22c55e}.bar-high{background:#22c55e}
@@ -179,24 +184,24 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .score-bad{color:#ef4444}.bar-bad{background:#ef4444}
 
 /* Signal boxes */
-.signal-box{border-radius:14px;padding:20px 22px;margin-bottom:12px}
+.signal-box{border-radius:12px;padding:16px 18px}
 
 .rejection-box{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2)}
-.rejection-box .signal-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
-.rejection-box .signal-text{font-size:13px;color:#fca5a5;line-height:1.7}
+.rejection-box .signal-label{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.rejection-box .signal-text{font-size:12px;color:#fca5a5;line-height:1.7}
 
 .priority-box{background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2)}
-.priority-box .signal-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px}
-.priority-box .signal-text{font-size:13px;color:#c4b5fd;line-height:1.7}
+.priority-box .signal-label{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--purple-light);margin-bottom:6px}
+.priority-box .signal-text{font-size:12px;color:#c4b5fd;line-height:1.7}
 
-.verdict-box{background:var(--surface);border-left:3px solid var(--amber);border-radius:0 14px 14px 0;padding:20px 22px;margin-bottom:12px}
-.verdict-box .signal-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
-.verdict-box .signal-text{font-size:13px;color:var(--body);line-height:1.7;font-style:italic}
+.verdict-box{background:var(--surface);border-left:3px solid var(--amber);border-radius:0 12px 12px 0;padding:16px 18px}
+.verdict-box .signal-label{font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.verdict-box .signal-text{font-size:12px;color:var(--body);line-height:1.7;font-style:italic}
 
-.results-footer{text-align:center;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+.results-footer{text-align:center;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);margin-top:20px}
 .results-footer a{color:var(--purple-light);text-decoration:none}
 
-.btn-restart{margin-top:16px;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--body);font-family:'Inter',sans-serif;transition:all .15s}
+.btn-restart{margin-top:14px;padding:9px 22px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--body);font-family:'Inter',sans-serif;transition:all .15s}
 .btn-restart:hover{color:var(--h1);border-color:var(--muted)}
 
 /* ERROR */
@@ -218,9 +223,10 @@ h1 em{font-style:normal;color:var(--purple-light)}
   .crit-grid,.steps{grid-template-columns:1fr}
   .form-outer-header{padding:52px 24px 0}
   .mode-selector{grid-template-columns:1fr;max-width:380px}
-  .form-area,.deck-area,.results-area{padding:28px 24px 48px}
-  .result-hero{flex-direction:column;text-align:center;gap:12px}
-  .crit-cards{grid-template-columns:1fr}
+  .form-area,.deck-area{padding:28px 24px 48px}
+  .results-area{padding:24px 16px 48px}
+  .results-top-row{grid-template-columns:1fr}
+  .crit-cards{grid-template-columns:1fr 1fr}
   .footer-cta{padding:56px 24px}
 }
 </style>
@@ -444,49 +450,46 @@ h1 em{font-style:normal;color:var(--purple-light)}
   <!-- LOADING -->
   <div class="loading-state" id="loadingState">
     <div class="loading-spinner"></div>
-    <div class="loading-title">Analysing your idea...</div>
-    <div class="loading-sub">Claude is scoring your startup across 6 investor criteria.<br>This takes about 10 seconds.</div>
+    <div class="loading-title">Running your investor analysis...</div>
+    <div class="loading-sub">Scoring across 6 criteria the way an Indian VC would.<br>Takes about 10–15 seconds.</div>
   </div>
 
   <!-- ERROR -->
   <div class="error-state" id="errorState">
     <div class="error-icon">⚠️</div>
     <div class="error-title">Something went wrong</div>
-    <div class="error-sub">Claude could not analyse your submission. Please try again in a moment.</div>
+    <div class="error-sub">Analysis failed. Please try again in a moment.</div>
     <button class="btn-restart" onclick="resetAll()">← Try again</button>
   </div>
 
   <!-- RESULTS -->
   <div class="results-area" id="resultsArea">
-    <div class="result-hero">
-      <div class="score-number" id="rScore">—<span class="score-denom">/10</span></div>
-      <div class="score-right">
+    <div class="results-top-row">
+      <div class="result-hero">
+        <div class="score-number" id="rScore">—<span class="score-denom">/10</span></div>
         <div class="grade-badge" id="rGrade">—</div>
-        <div class="score-label">Overall weighted score<br>across 6 investor criteria</div>
+        <div class="score-label">Weighted score across<br>6 investor criteria</div>
+      </div>
+      <div class="signals-col">
+        <div class="signal-box rejection-box">
+          <div class="signal-label">Top rejection risk</div>
+          <div class="signal-text" id="rRejection">—</div>
+        </div>
+        <div class="signal-box priority-box">
+          <div class="signal-label">Priority fix — next 30 days</div>
+          <div class="signal-text" id="rPriority">—</div>
+        </div>
+        <div class="verdict-box">
+          <div class="signal-label">Investor verdict</div>
+          <div class="signal-text" id="rVerdict">—</div>
+        </div>
       </div>
     </div>
-
-    <div class="results-section-label" style="margin-top:8px">Score breakdown</div>
+    <div class="results-section-label" style="margin-top:28px">Score breakdown</div>
     <div class="crit-cards" id="critCards"></div>
-
-    <div class="results-section-label">Investor signals</div>
-    <div class="signal-box rejection-box">
-      <div class="signal-label">Top rejection risk</div>
-      <div class="signal-text" id="rRejection">—</div>
-    </div>
-    <div class="signal-box priority-box">
-      <div class="signal-label">Priority fix — next 30 days</div>
-      <div class="signal-text" id="rPriority">—</div>
-    </div>
-    <div class="verdict-box">
-      <div class="signal-label">Investor verdict</div>
-      <div class="signal-text" id="rVerdict">—</div>
-    </div>
-
     <div class="results-footer">
-      Report generated by Pre-Validation OS · Beta<br>
-      A full copy has been sent to your inbox.<br><br>
-      <button class="btn-restart" onclick="resetAll()">Score another idea</button>
+      Pre-Validation OS · Beta &nbsp;·&nbsp; A copy has been sent to your inbox.
+      <br><button class="btn-restart" onclick="resetAll()">Score another idea</button>
     </div>
   </div>
 
