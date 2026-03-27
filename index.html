@@ -401,7 +401,7 @@ h1 em{font-style:normal;color:var(--purple-light)}
     <div class="deck-drop" id="deckDrop" onclick="document.getElementById('deckFile').click()">
       <span class="deck-drop-icon">📄</span>
       <div class="deck-drop-title">Drop your pitch deck here</div>
-      <div class="deck-drop-sub">PDF only · Max 10MB · Click or drag to upload</div>
+      <div class="deck-drop-sub">PDF only · Max 500KB · Click or drag to upload</div>
       <input type="file" class="deck-file-input" id="deckFile" accept=".pdf" onchange="handleFileSelect(this)">
     </div>
     <div class="deck-selected" id="deckSelected">
@@ -409,7 +409,7 @@ h1 em{font-style:normal;color:var(--purple-light)}
       <div class="deck-file-size" id="deckFileSize">2.4 MB</div>
       <button class="deck-remove" onclick="removeFile()">✕</button>
     </div>
-    <p class="deck-note">The AI reads your deck and scores it across the same 6 investor criteria. Results may be slightly less precise than the structured questions.</p>
+    <p class="deck-note">The AI reads your deck and scores it across the same 6 investor criteria. Keep your PDF under 500KB — compress it at smallpdf.com if needed.</p>
     <button class="btn-submit" id="deckSubmitBtn" onclick="submitDeck()"><span id="deckSubmitText">Analyse my pitch deck →</span></button>
   </div>
 
@@ -496,7 +496,7 @@ function submitForm(){
 function handleFileSelect(input){
   var file=input.files[0];
   if(!file)return;
-  if(file.size>10*1024*1024){alert('File must be under 10MB.');input.value='';return;}
+  if(file.size>500*1024){alert('File must be under 500KB. Please compress your PDF and try again.');input.value='';return;}
   document.getElementById('deckFileName').textContent=file.name;
   document.getElementById('deckFileSize').textContent=(file.size/(1024*1024)).toFixed(1)+' MB';
   document.getElementById('deckSelected').classList.add('show');
