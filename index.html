@@ -14,7 +14,7 @@
   --purple:#7c3aed;--purple-light:#9b5cf6;
   --purple-dim:rgba(124,58,237,0.1);--purple-glow:rgba(124,58,237,0.28);
   --h1:#e8e8f0;--body:#6b6b8a;--muted:#4a4a62;--faint:#2a2a3e;
-  --green:#22c55e;--red:#ef4444;
+  --green:#22c55e;--red:#ef4444;--amber:#f59e0b;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--body);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -29,30 +29,11 @@ nav{background:rgba(10,10,15,0.9);border-bottom:1px solid var(--border);padding:
 .nav-cta{padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;background:var(--purple);color:#fff;border:none;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;transition:all .15s}
 .nav-cta:hover{background:var(--purple-light);box-shadow:0 0 20px var(--purple-glow)}
 
-/* HERO — fits in viewport with nav */
-.hero-wrap{
-  min-height:calc(100vh - 57px);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;
-  padding:40px 48px 48px;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid var(--border);
-}
+/* HERO */
+.hero-wrap{min-height:calc(100vh - 57px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 48px 48px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
 .hero-wrap::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 45%,rgba(124,58,237,0.07) 0%,transparent 65%);pointer-events:none}
 .eyebrow{display:inline-block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);background:var(--surface);border:1px solid var(--border2);padding:6px 16px;border-radius:20px;margin-bottom:28px;font-weight:500;position:relative}
-/* THE KEY FIX: h1 constrained to 2 lines */
-h1{
-  font-size:clamp(30px,4vw,60px);
-  font-weight:900;
-  line-height:1.1;
-  color:var(--h1);
-  margin-bottom:20px;
-  letter-spacing:-.03em;
-  max-width:840px;
-  margin-left:auto;
-  margin-right:auto;
-}
+h1{font-size:clamp(30px,4vw,60px);font-weight:900;line-height:1.1;color:var(--h1);margin-bottom:20px;letter-spacing:-.03em;max-width:840px;margin-left:auto;margin-right:auto}
 @media(max-width:700px){h1{font-size:clamp(24px,7vw,36px)}}
 h1 em{font-style:normal;color:var(--purple-light)}
 .sub{font-size:17px;color:var(--body);line-height:1.65;max-width:500px;margin:0 auto 32px;font-weight:400;position:relative}
@@ -60,8 +41,6 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .btn-hero:hover{background:var(--purple-light);transform:translateY(-2px);box-shadow:0 0 44px var(--purple-glow)}
 .btn-beta-tag{font-size:11px;background:rgba(255,255,255,0.15);padding:3px 9px;border-radius:8px;letter-spacing:.03em;border:1px solid rgba(255,255,255,0.2)}
 .hero-note{font-size:13px;color:var(--muted);position:relative}
-
-/* STATS — inside hero at bottom */
 .stats{display:flex;justify-content:center;gap:0;margin-top:40px;border:1px solid var(--border);border-radius:12px;overflow:hidden;max-width:480px;width:100%;position:relative}
 .stat{flex:1;text-align:center;padding:18px 12px;border-right:1px solid var(--border);background:var(--surface)}
 .stat:last-child{border-right:none}
@@ -74,20 +53,17 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .sec-eye{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:500}
 .sec-title{font-size:clamp(28px,3.5vw,48px);font-weight:900;color:var(--h1);margin-bottom:10px;letter-spacing:-.03em;line-height:1.05}
 .sec-sub{font-size:15px;color:var(--body);margin-bottom:36px;line-height:1.6;max-width:520px;margin-left:auto;margin-right:auto}
-
 .crit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
 .ci{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px;transition:border-color .2s}
 .ci:hover{border-color:var(--border2)}
 .ci-num{font-size:12px;color:var(--muted);font-weight:500;margin-bottom:10px}
 .ci-name{font-size:16px;font-weight:700;color:var(--h1);margin-bottom:5px;letter-spacing:-.01em}
 .ci-desc{font-size:13px;color:var(--body)}
-
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;text-align:left}
 .step-item{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px 22px}
 .step-icon{width:38px;height:38px;background:var(--purple-dim);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--purple-light);margin-bottom:14px}
 .step-title{font-size:15px;font-weight:700;color:var(--h1);margin-bottom:5px}
 .step-desc{font-size:13px;color:var(--body);line-height:1.5}
-
 .faq-list{text-align:left;max-width:660px;margin:0 auto}
 .faq-item{background:var(--surface);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden}
 .faq-q{padding:17px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600;color:var(--h1);user-select:none}
@@ -99,7 +75,6 @@ h1 em{font-style:normal;color:var(--purple-light)}
 /* FORM SECTION */
 .form-outer{background:var(--bg)}
 .form-outer-header{padding:72px 48px 64px;text-align:center;max-width:760px;margin:0 auto}
-
 .mode-selector{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:540px;margin:28px auto 0}
 .mode-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:22px 20px;cursor:pointer;transition:all .2s;text-align:left}
 .mode-card:hover{border-color:var(--purple)}
@@ -107,27 +82,22 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .mode-card-icon{font-size:20px;margin-bottom:10px}
 .mode-card-title{font-size:14px;font-weight:700;color:var(--h1);margin-bottom:3px}
 .mode-card-desc{font-size:12px;color:var(--body)}
-
 .form-area{max-width:520px;margin:0 auto;padding:36px 48px 64px;display:none}
 .form-area.visible{display:block}
-
 .progress-wrap{margin-bottom:28px}
 .progress-top{display:flex;justify-content:space-between;margin-bottom:9px}
 .progress-label{font-size:12px;color:var(--muted);font-weight:500}
 .progress-count{font-size:12px;color:var(--purple-light);font-weight:600}
 .progress-track{height:3px;background:var(--border2);border-radius:3px;overflow:hidden}
 .progress-fill{height:100%;background:var(--purple);border-radius:3px;transition:width .4s ease}
-
 .step-card{display:none;animation:fadeSlide .28s ease}
 .step-card.active{display:block}
 .step-card.slide-back{animation:fadeSlideBack .28s ease}
 @keyframes fadeSlide{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
 @keyframes fadeSlideBack{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:translateX(0)}}
-
 .step-header{margin-bottom:24px}
 .step-eye{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;font-weight:500}
 .step-title-form{font-size:22px;font-weight:800;color:var(--h1);letter-spacing:-.02em}
-
 .fg{margin-bottom:18px}
 .fl{font-size:13px;font-weight:600;color:var(--h1);margin-bottom:7px;display:block}
 .fl span{color:var(--purple-light);margin-left:2px}
@@ -137,13 +107,11 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .fta{resize:none;line-height:1.6;min-height:88px}
 .fsel{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a4a62' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
 .fsel option{background:#16161f;color:var(--h1)}
-
 .yn-row{display:flex;gap:8px}
 .yn-btn{flex:1;padding:11px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:var(--surface);color:var(--body);font-family:'Inter',sans-serif;transition:all .15s;text-align:center}
 .yn-btn:hover{border-color:var(--purple);color:var(--h1)}
 .yn-btn.active-yes{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.35);color:var(--green)}
 .yn-btn.active-no{background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.35);color:var(--red)}
-
 .step-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--border)}
 .btn-back{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--body);font-family:'Inter',sans-serif;transition:all .15s}
 .btn-back:hover{color:var(--h1);border-color:var(--muted)}
@@ -152,7 +120,6 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .btn-submit{width:100%;padding:13px;border-radius:9px;font-size:14px;font-weight:700;border:none;background:var(--purple);color:#fff;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;box-shadow:0 0 20px var(--purple-glow)}
 .btn-submit:hover{background:var(--purple-light);box-shadow:0 0 32px var(--purple-glow)}
 .btn-submit:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
-
 .deck-area{max-width:520px;margin:0 auto;padding:36px 48px 64px;display:none}
 .deck-area.visible{display:block}
 .deck-drop{border:1.5px dashed var(--border2);border-radius:12px;padding:44px 24px;text-align:center;cursor:pointer;transition:all .2s;margin-bottom:16px}
@@ -170,10 +137,74 @@ h1 em{font-style:normal;color:var(--purple-light)}
 .deck-note{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.6}
 .deck-email-wrap{margin-bottom:18px}
 
-.success-state{display:none;text-align:center;padding:56px 32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;margin:32px 48px 48px}
-.success-icon{width:52px;height:52px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:20px;color:var(--green)}
-.success-title{font-size:20px;font-weight:800;color:var(--h1);margin-bottom:8px;letter-spacing:-.02em}
-.success-sub{font-size:13px;color:var(--body);line-height:1.7}
+/* LOADING STATE */
+.loading-state{display:none;text-align:center;padding:56px 32px;max-width:520px;margin:0 auto}
+.loading-state.visible{display:block}
+.loading-spinner{width:44px;height:44px;border:3px solid var(--border2);border-top-color:var(--purple);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-title{font-size:18px;font-weight:700;color:var(--h1);margin-bottom:8px}
+.loading-sub{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* RESULTS */
+.results-area{display:none;max-width:600px;margin:0 auto;padding:32px 48px 64px}
+.results-area.visible{display:block}
+
+.result-hero{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;display:flex;align-items:center;gap:24px}
+.score-number{font-size:64px;font-weight:900;color:var(--h1);line-height:1;flex-shrink:0;letter-spacing:-.03em}
+.score-denom{font-size:22px;color:var(--muted);font-weight:400}
+.score-right{}
+.grade-badge{display:inline-block;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;margin-bottom:10px;letter-spacing:.04em}
+.grade-strong{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
+.grade-promising{background:rgba(124,58,237,0.1);color:var(--purple-light);border:1px solid rgba(124,58,237,0.25)}
+.grade-weak{background:rgba(245,158,11,0.1);color:var(--amber);border:1px solid rgba(245,158,11,0.25)}
+.grade-notready{background:rgba(239,68,68,0.1);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.score-label{font-size:13px;color:var(--muted);line-height:1.5}
+
+.results-section-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:12px}
+
+.crit-cards{display:grid;gap:10px;margin-bottom:20px}
+.crit-result-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.crit-result-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.crit-result-name{font-size:13px;font-weight:700;color:var(--h1)}
+.crit-result-weight{font-size:11px;color:var(--muted);margin-left:6px}
+.crit-result-score{font-size:22px;font-weight:800}
+.crit-bar-track{height:3px;background:var(--border2);border-radius:2px;margin-bottom:12px;overflow:hidden}
+.crit-bar-fill{height:100%;border-radius:2px;transition:width .8s ease}
+.crit-reasoning{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* Score colours */
+.score-high{color:#22c55e}.bar-high{background:#22c55e}
+.score-mid{color:#7c3aed}.bar-mid{background:#7c3aed}
+.score-low{color:#f59e0b}.bar-low{background:#f59e0b}
+.score-bad{color:#ef4444}.bar-bad{background:#ef4444}
+
+/* Signal boxes */
+.signal-box{border-radius:14px;padding:20px 22px;margin-bottom:12px}
+
+.rejection-box{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2)}
+.rejection-box .signal-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.rejection-box .signal-text{font-size:13px;color:#fca5a5;line-height:1.7}
+
+.priority-box{background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2)}
+.priority-box .signal-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-light);margin-bottom:8px}
+.priority-box .signal-text{font-size:13px;color:#c4b5fd;line-height:1.7}
+
+.verdict-box{background:var(--surface);border-left:3px solid var(--amber);border-radius:0 14px 14px 0;padding:20px 22px;margin-bottom:12px}
+.verdict-box .signal-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.verdict-box .signal-text{font-size:13px;color:var(--body);line-height:1.7;font-style:italic}
+
+.results-footer{text-align:center;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+.results-footer a{color:var(--purple-light);text-decoration:none}
+
+.btn-restart{margin-top:16px;padding:10px 24px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;border:1px solid var(--border2);background:transparent;color:var(--body);font-family:'Inter',sans-serif;transition:all .15s}
+.btn-restart:hover{color:var(--h1);border-color:var(--muted)}
+
+/* ERROR */
+.error-state{display:none;text-align:center;padding:40px 32px;max-width:520px;margin:0 auto}
+.error-state.visible{display:block}
+.error-icon{font-size:28px;margin-bottom:12px}
+.error-title{font-size:16px;font-weight:700;color:var(--h1);margin-bottom:6px}
+.error-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:20px}
 
 .footer-cta{padding:80px 48px;text-align:center;background:var(--surface);border-top:1px solid var(--border);position:relative;overflow:hidden}
 .footer-cta::before{content:'';position:absolute;bottom:-80px;left:50%;transform:translateX(-50%);width:500px;height:320px;background:radial-gradient(ellipse,rgba(124,58,237,0.07),transparent 70%);pointer-events:none}
@@ -187,8 +218,8 @@ h1 em{font-style:normal;color:var(--purple-light)}
   .crit-grid,.steps{grid-template-columns:1fr}
   .form-outer-header{padding:52px 24px 0}
   .mode-selector{grid-template-columns:1fr;max-width:380px}
-  .form-area,.deck-area{padding:28px 24px 48px}
-  .success-state{margin:24px 24px 40px}
+  .form-area,.deck-area,.results-area{padding:28px 24px 48px}
+  .result-hero{flex-direction:column;text-align:center;gap:12px}
   .footer-cta{padding:56px 24px}
 }
 </style>
@@ -206,21 +237,19 @@ h1 em{font-style:normal;color:var(--purple-light)}
   </div>
 </nav>
 
-<!-- HERO — everything visible on first load -->
 <div class="hero-wrap">
   <div class="eyebrow">Pre-seed investor intelligence</div>
   <h1>Know <em>exactly</em> why investors<br>would reject your startup</h1>
   <p class="sub">An AI that thinks like a pre-seed VC partner scores your idea and tells you your top rejection risk before you walk into the room.</p>
   <a href="#get-scored" class="btn-hero">Get your free score <span class="btn-beta-tag">Beta</span></a>
-  <p class="hero-note">No payment &nbsp;·&nbsp; 7 minutes &nbsp;·&nbsp; Report in 2 minutes</p>
+  <p class="hero-note">No payment &nbsp;·&nbsp; 7 minutes &nbsp;·&nbsp; Results on screen instantly</p>
   <div class="stats">
     <div class="stat"><div class="stat-n">6</div><div class="stat-l">investor criteria</div></div>
-    <div class="stat"><div class="stat-n">2 min</div><div class="stat-l">report delivery</div></div>
+    <div class="stat"><div class="stat-n">10 sec</div><div class="stat-l">result delivery</div></div>
     <div class="stat"><div class="stat-n">Free</div><div class="stat-l">during beta</div></div>
   </div>
 </div>
 
-<!-- CRITERIA -->
 <div class="sec-wrap">
 <section class="sec">
   <div class="sec-eye">What gets scored</div>
@@ -237,21 +266,19 @@ h1 em{font-style:normal;color:var(--purple-light)}
 </section>
 </div>
 
-<!-- PROCESS -->
 <div class="sec-wrap">
 <section class="sec">
   <div class="sec-eye">Process</div>
-  <div class="sec-title">Fill. Submit. Read.</div>
+  <div class="sec-title">Fill. Submit. See results.</div>
   <div class="sec-sub" style="margin-bottom:28px">Three steps. No calls. No waiting.</div>
   <div class="steps">
     <div class="step-item"><div class="step-icon">01</div><div class="step-title">Fill the form</div><div class="step-desc">Structured questions or upload your pitch deck. 7 minutes.</div></div>
     <div class="step-item"><div class="step-icon">02</div><div class="step-title">AI scores your idea</div><div class="step-desc">Claude evaluates like a VC partner — fast and unfiltered.</div></div>
-    <div class="step-item"><div class="step-icon">03</div><div class="step-title">Report in 2 minutes</div><div class="step-desc">Full breakdown straight to your inbox.</div></div>
+    <div class="step-item"><div class="step-icon">03</div><div class="step-title">Results on screen</div><div class="step-desc">Full breakdown appears instantly. Email copy sent too.</div></div>
   </div>
 </section>
 </div>
 
-<!-- FAQ -->
 <div class="sec-wrap">
 <section class="sec">
   <div class="sec-eye">FAQ</div>
@@ -267,7 +294,7 @@ h1 em{font-style:normal;color:var(--purple-light)}
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">Can I upload my pitch deck instead of filling questions?</div>
-      <div class="faq-a">Yes. You can either fill the structured form or upload your pitch deck as a PDF. Both paths generate the same investor readiness report.</div>
+      <div class="faq-a">Yes. You can either fill the structured form or upload your pitch deck as a PDF under 500KB. Both paths generate the same investor readiness report.</div>
     </div>
     <div class="faq-item" onclick="toggleFaq(this)">
       <div class="faq-q">Will my idea be kept confidential?</div>
@@ -279,7 +306,7 @@ h1 em{font-style:normal;color:var(--purple-light)}
 
 <!-- FORM SECTION -->
 <section id="get-scored" style="border-bottom:1px solid var(--border)">
-  <div class="form-outer-header">
+  <div class="form-outer-header" id="formHeader">
     <div class="sec-eye">Submit your idea</div>
     <div class="sec-title">Get your investor readiness score.</div>
     <p style="font-size:14px;color:var(--body);margin-top:8px">Choose how you want to submit.</p>
@@ -292,7 +319,7 @@ h1 em{font-style:normal;color:var(--purple-light)}
       <div class="mode-card" id="modeDeck" onclick="setMode('deck')">
         <div class="mode-card-icon">📄</div>
         <div class="mode-card-title">Upload pitch deck</div>
-        <div class="mode-card-desc">PDF upload · 2 min · AI reads your deck</div>
+        <div class="mode-card-desc">PDF upload · 500KB max · AI reads your deck</div>
       </div>
     </div>
   </div>
@@ -409,19 +436,61 @@ h1 em{font-style:normal;color:var(--purple-light)}
       <div class="deck-file-size" id="deckFileSize">2.4 MB</div>
       <button class="deck-remove" onclick="removeFile()">✕</button>
     </div>
-    <p class="deck-note">The AI reads your deck and scores it across the same 6 investor criteria. Keep your PDF under 500KB — compress it at smallpdf.com if needed.</p>
+    <p class="deck-note">Keep your PDF under 500KB — compress it at smallpdf.com if needed. The AI reads your deck and scores it across the same 6 investor criteria.</p>
     <button class="btn-submit" id="deckSubmitBtn" onclick="submitDeck()"><span id="deckSubmitText">Analyse my pitch deck →</span></button>
   </div>
 
-  <!-- SUCCESS -->
-  <div class="success-state" id="successState">
-    <div class="success-icon">✓</div>
-    <div class="success-title">Submission received</div>
-    <p class="success-sub">Your investor readiness report is being generated.<br>Check your inbox in the next 2 minutes.<br><br>Check spam if you do not see it.</p>
+  <!-- LOADING -->
+  <div class="loading-state" id="loadingState">
+    <div class="loading-spinner"></div>
+    <div class="loading-title">Analysing your idea...</div>
+    <div class="loading-sub">Claude is scoring your startup across 6 investor criteria.<br>This takes about 10 seconds.</div>
   </div>
+
+  <!-- ERROR -->
+  <div class="error-state" id="errorState">
+    <div class="error-icon">⚠️</div>
+    <div class="error-title">Something went wrong</div>
+    <div class="error-sub">Claude could not analyse your submission. Please try again in a moment.</div>
+    <button class="btn-restart" onclick="resetAll()">← Try again</button>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="results-area" id="resultsArea">
+    <div class="result-hero">
+      <div class="score-number" id="rScore">—<span class="score-denom">/10</span></div>
+      <div class="score-right">
+        <div class="grade-badge" id="rGrade">—</div>
+        <div class="score-label">Overall weighted score<br>across 6 investor criteria</div>
+      </div>
+    </div>
+
+    <div class="results-section-label" style="margin-top:8px">Score breakdown</div>
+    <div class="crit-cards" id="critCards"></div>
+
+    <div class="results-section-label">Investor signals</div>
+    <div class="signal-box rejection-box">
+      <div class="signal-label">Top rejection risk</div>
+      <div class="signal-text" id="rRejection">—</div>
+    </div>
+    <div class="signal-box priority-box">
+      <div class="signal-label">Priority fix — next 30 days</div>
+      <div class="signal-text" id="rPriority">—</div>
+    </div>
+    <div class="verdict-box">
+      <div class="signal-label">Investor verdict</div>
+      <div class="signal-text" id="rVerdict">—</div>
+    </div>
+
+    <div class="results-footer">
+      Report generated by Pre-Validation OS · Beta<br>
+      A full copy has been sent to your inbox.<br><br>
+      <button class="btn-restart" onclick="resetAll()">Score another idea</button>
+    </div>
+  </div>
+
 </section>
 
-<!-- FOOTER -->
 <section class="footer-cta">
   <div class="footer-h">Know where you stand<br>before you pitch.</div>
   <div class="footer-sub">Free during beta · Takes 7 minutes</div>
@@ -429,9 +498,29 @@ h1 em{font-style:normal;color:var(--purple-light)}
 </section>
 
 <script>
-const WEBHOOK='https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
-var currentStep=1,totalSteps=6,currentMode='none';
+const WORKER = 'https://shiny-meadow-778c.manthan-sharma266.workers.dev/';
+const WEBHOOK = 'https://hook.eu1.make.com/e2oeyvt319ai97uqbmnguf08i62feqwl';
+
+var currentStep=1, totalSteps=6, currentMode='none';
 var stepLabels=['Basic Info','Problem Clarity','Founder-Market Fit','Scalability & Competition','GTM Clarity','Traction Signal'];
+
+var SYSTEM_PROMPT = `You are a brutally honest pre-seed startup investor who deeply follows YC's philosophy. Evaluate this startup across 6 criteria. Return ONLY valid JSON. No markdown. No preamble.
+
+CRITERIA (score 1-10):
+1. problem_clarity (weight 25%)
+2. founder_market_fit (weight 25%)
+3. scalability (weight 20%)
+4. competition_awareness (weight 10%)
+5. gtm_clarity (weight 10%)
+6. traction_signal (weight 10%)
+
+For the priority_fix field: Write like a warm YC partner giving advice after office hours. Be specific, human, and actionable. Reference what actually works at pre-seed — things like "do things that don't scale", "talk to 10 real users this week before writing a single line of code", "get one person to pay you even Rs 100 via UPI — that conversation will teach you more than 6 months of building". Avoid corporate language. Write like you genuinely want them to succeed.
+
+OUTPUT FORMAT:
+{"scores":{"problem_clarity":{"score":0,"reasoning":""},"founder_market_fit":{"score":0,"reasoning":""},"scalability":{"score":0,"reasoning":""},"competition_awareness":{"score":0,"reasoning":""},"gtm_clarity":{"score":0,"reasoning":""},"traction_signal":{"score":0,"reasoning":""}},"overall_score":0,"overall_grade":"","rejection_risk":"","priority_fix":"","investor_verdict":""}
+
+GRADE SCALE: 8.5-10: Strong. 7-8.4: Promising. 5-6.9: Weak. Below 5: Not ready.
+Calculate overall_score: (problem_clarity x 0.25)+(founder_market_fit x 0.25)+(scalability x 0.20)+(competition_awareness x 0.10)+(gtm_clarity x 0.10)+(traction_signal x 0.10). Round to 1 decimal.`;
 
 function toggleFaq(el){
   var isOpen=el.classList.contains('open');
@@ -446,7 +535,7 @@ function setMode(mode){
   document.getElementById('modeDeck').classList.toggle('active',mode==='deck');
   var qArea=document.getElementById('questionsArea');
   var dArea=document.getElementById('deckArea');
-  document.getElementById('successState').style.display='none';
+  hideResults();
   if(mode==='questions'){dArea.classList.remove('visible');qArea.classList.add('visible');}
   else{qArea.classList.remove('visible');dArea.classList.add('visible');}
 }
@@ -482,23 +571,156 @@ function goToStep(to,direction){
   document.getElementById('progressCount').textContent=stepLabels[to-1];
 }
 
+function showLoading(){
+  document.getElementById('questionsArea').classList.remove('visible');
+  document.getElementById('deckArea').classList.remove('visible');
+  document.getElementById('formHeader').style.display='none';
+  document.getElementById('loadingState').classList.add('visible');
+  document.getElementById('loadingState').scrollIntoView({behavior:'smooth'});
+}
+
+function hideResults(){
+  document.getElementById('loadingState').classList.remove('visible');
+  document.getElementById('resultsArea').classList.remove('visible');
+  document.getElementById('errorState').classList.remove('visible');
+  document.getElementById('formHeader').style.display='';
+}
+
+function resetAll(){
+  hideResults();
+  currentStep=1;
+  currentMode='none';
+  document.getElementById('modeSelector').style.display='';
+  document.getElementById('formHeader').style.display='';
+  document.getElementById('modeQuestions').classList.remove('active');
+  document.getElementById('modeDeck').classList.remove('active');
+  document.getElementById('questionsArea').classList.remove('visible');
+  document.getElementById('deckArea').classList.remove('visible');
+  document.getElementById('get-scored').scrollIntoView({behavior:'smooth'});
+}
+
+function scoreColor(s){
+  if(s>=8)return{score:'score-high',bar:'bar-high'};
+  if(s>=6)return{score:'score-mid',bar:'bar-mid'};
+  if(s>=4)return{score:'score-low',bar:'bar-low'};
+  return{score:'score-bad',bar:'bar-bad'};
+}
+
+function gradeClass(grade){
+  if(grade==='Strong')return'grade-strong';
+  if(grade==='Promising')return'grade-promising';
+  if(grade==='Weak')return'grade-weak';
+  return'grade-notready';
+}
+
+var criteriaConfig=[
+  {key:'problem_clarity',label:'Problem clarity',weight:'25%'},
+  {key:'founder_market_fit',label:'Founder-market fit',weight:'25%'},
+  {key:'scalability',label:'Scalability',weight:'20%'},
+  {key:'competition_awareness',label:'Competition awareness',weight:'10%'},
+  {key:'gtm_clarity',label:'GTM clarity',weight:'10%'},
+  {key:'traction_signal',label:'Traction signal',weight:'10%'},
+];
+
+function renderResults(data){
+  document.getElementById('loadingState').classList.remove('visible');
+
+  var score=data.overall_score;
+  document.getElementById('rScore').innerHTML=score+'<span class="score-denom">/10</span>';
+
+  var grade=data.overall_grade;
+  var gEl=document.getElementById('rGrade');
+  gEl.textContent=grade;
+  gEl.className='grade-badge '+gradeClass(grade);
+
+  var cards='';
+  criteriaConfig.forEach(function(c){
+    var sc=data.scores[c.key];
+    var col=scoreColor(sc.score);
+    cards+='<div class="crit-result-card">';
+    cards+='<div class="crit-result-top"><div><span class="crit-result-name">'+c.label+'</span><span class="crit-result-weight">'+c.weight+'</span></div><span class="crit-result-score '+col.score+'">'+sc.score+'/10</span></div>';
+    cards+='<div class="crit-bar-track"><div class="crit-bar-fill '+col.bar+'" style="width:'+(sc.score*10)+'%"></div></div>';
+    cards+='<div class="crit-reasoning">'+sc.reasoning+'</div>';
+    cards+='</div>';
+  });
+  document.getElementById('critCards').innerHTML=cards;
+
+  document.getElementById('rRejection').textContent=data.rejection_risk;
+  document.getElementById('rPriority').textContent=data.priority_fix;
+  document.getElementById('rVerdict').textContent=data.investor_verdict;
+
+  document.getElementById('resultsArea').classList.add('visible');
+  document.getElementById('resultsArea').scrollIntoView({behavior:'smooth'});
+}
+
+function showError(){
+  document.getElementById('loadingState').classList.remove('visible');
+  document.getElementById('errorState').classList.add('visible');
+}
+
+function callClaude(messages, onSuccess){
+  fetch(WORKER,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      model:'claude-sonnet-4-20250514',
+      max_tokens:1500,
+      system:SYSTEM_PROMPT,
+      messages:messages
+    })
+  })
+  .then(function(r){return r.json();})
+  .then(function(d){
+    var text=d.content&&d.content[0]&&d.content[0].text;
+    if(!text)throw new Error('No response');
+    var json=JSON.parse(text);
+    onSuccess(json);
+  })
+  .catch(function(){showError();});
+}
+
 function submitForm(){
   if(!validateStep(6))return;
-  var btn=document.getElementById('submitBtn'),txt=document.getElementById('submitText');
-  btn.disabled=true;txt.textContent='Sending...';
   function clean(str){return str.trim().replace(/[\r\n]+/g,' ');}
   var data={tier:'Full Report (Beta)',email:document.getElementById('email').value.trim(),idea:clean(document.getElementById('idea').value),problem:clean(document.getElementById('problem').value),problem_evidence:document.getElementById('problemEvidence').value,interviews_outside_network:document.getElementById('interviews').value,industry_experience:document.getElementById('experience').value,personally_experienced:document.getElementById('personalExp').value,domain_expert_cofounder:document.getElementById('cofounder').value,relevant_background:clean(document.getElementById('background').value),business_model:document.getElementById('businessModel').value,cost_per_customer:document.getElementById('costPerCustomer').value,works_outside_india:document.getElementById('outsideIndia').value,competitors:clean(document.getElementById('competitors').value),differentiation:clean(document.getElementById('differentiation').value),competitor_can_copy:document.getElementById('competitorCopy').value,first_customer_target:clean(document.getElementById('firstCustomer').value),gtm_channel:document.getElementById('gtmChannel').value,warm_intro:document.getElementById('warmIntro').value,validation_level:document.getElementById('validationLevel').value,total_interviews:document.getElementById('totalInterviews').value,offered_to_pay:document.getElementById('offeredToPay').value};
-  fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-  .then(function(){document.getElementById('questionsArea').style.display='none';document.getElementById('modeSelector').style.display='none';document.getElementById('successState').style.display='block';document.getElementById('successState').scrollIntoView({behavior:'smooth'});})
-  .catch(function(){btn.disabled=false;txt.textContent='Get my investor score →';alert('Something went wrong. Please try again.');});
+
+  showLoading();
+
+  var userMsg='Evaluate this startup idea:\n\n'+
+    'Idea: '+data.idea+'\n'+
+    'Problem: '+data.problem+'\n'+
+    'Evidence: '+data.problem_evidence+'\n'+
+    'Interviews outside network: '+data.interviews_outside_network+'\n'+
+    'Industry experience: '+data.industry_experience+'\n'+
+    'Personally experienced: '+data.personally_experienced+'\n'+
+    'Domain expert co-founder: '+data.domain_expert_cofounder+'\n'+
+    'Background: '+data.relevant_background+'\n'+
+    'Business model: '+data.business_model+'\n'+
+    'Cost per customer: '+data.cost_per_customer+'\n'+
+    'Works outside India: '+data.works_outside_india+'\n'+
+    'Competitors: '+data.competitors+'\n'+
+    'Differentiation: '+data.differentiation+'\n'+
+    'Competitor can copy in 12 months: '+data.competitor_can_copy+'\n'+
+    'First customer target: '+data.first_customer_target+'\n'+
+    'GTM channel: '+data.gtm_channel+'\n'+
+    'Warm intro: '+data.warm_intro+'\n'+
+    'Validation level: '+data.validation_level+'\n'+
+    'Total interviews: '+data.total_interviews+'\n'+
+    'Offered to pay: '+data.offered_to_pay;
+
+  callClaude([{role:'user',content:userMsg}],function(json){
+    renderResults(json);
+    // Fire Make.com webhook in background for Airtable + Gmail
+    fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){});
+  });
 }
 
 function handleFileSelect(input){
   var file=input.files[0];
   if(!file)return;
-  if(file.size>500*1024){alert('File must be under 500KB. Please compress your PDF and try again.');input.value='';return;}
+  if(file.size>500*1024){alert('File must be under 500KB. Please compress at smallpdf.com and try again.');input.value='';return;}
   document.getElementById('deckFileName').textContent=file.name;
-  document.getElementById('deckFileSize').textContent=(file.size/(1024*1024)).toFixed(1)+' MB';
+  document.getElementById('deckFileSize').textContent=(file.size/1024).toFixed(0)+' KB';
   document.getElementById('deckSelected').classList.add('show');
   document.getElementById('deckDrop').style.display='none';
 }
@@ -523,14 +745,20 @@ function submitDeck(){
   var email=document.getElementById('deckEmail').value.trim(),file=document.getElementById('deckFile').files[0];
   if(!email||!email.includes('@')){alert('Please enter a valid email address.');return;}
   if(!file){alert('Please upload your pitch deck PDF.');return;}
-  var btn=document.getElementById('deckSubmitBtn'),txt=document.getElementById('deckSubmitText');
-  btn.disabled=true;txt.textContent='Uploading...';
+
+  showLoading();
+
   var reader=new FileReader();
   reader.onload=function(e){
     var base64=e.target.result.split(',')[1];
-    fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier:'Pitch Deck (Beta)',email:email,deck_filename:file.name,deck_base64:base64})})
-    .then(function(){document.getElementById('deckArea').style.display='none';document.getElementById('modeSelector').style.display='none';document.getElementById('successState').style.display='block';document.getElementById('successState').scrollIntoView({behavior:'smooth'});})
-    .catch(function(){btn.disabled=false;txt.textContent='Analyse my pitch deck →';alert('Something went wrong. Please try again.');});
+    callClaude([{role:'user',content:[
+      {type:'document',source:{type:'base64',media_type:'application/pdf',data:base64}},
+      {type:'text',text:'Evaluate this pitch deck and return ONLY the JSON score object.'}
+    ]}],function(json){
+      renderResults(json);
+      // Fire Make.com webhook in background
+      fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tier:'Pitch Deck (Beta)',email:email,deck_filename:file.name,deck_base64:base64})}).catch(function(){});
+    });
   };
   reader.readAsDataURL(file);
 }
